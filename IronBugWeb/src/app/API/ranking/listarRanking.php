@@ -17,10 +17,15 @@
   // REALIZA LA QUERY A LA BD
   $listado = mysqli_query($conexion, "SELECT * FROM ranking");
 
+  while ($resultadoArray = mysqli_fetch_array($listado)) {
+    $rankingsArray[] = $resultadoArray;
+  }
+
+
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
   $resultado = $listado->fetch_assoc();
 
-  $json = json_encode($resultado); // GENERA EL JSON CON LOS DATOS OBTENIDOS
+  $json = json_encode($rankingsArray); // GENERA EL JSON CON LOS DATOS OBTENIDOS
 
   header('Content-Type: application/json'); //envía el encabezado http json al navegador para informarle qué tipo de datos espera.
 
