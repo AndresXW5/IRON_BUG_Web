@@ -16,7 +16,6 @@ function conexion() {
       exit;
      }
     return $enlace;
-
     }
 
 ?>
