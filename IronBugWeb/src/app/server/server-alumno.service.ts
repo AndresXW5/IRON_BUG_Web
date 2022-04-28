@@ -17,16 +17,16 @@ export class ServerAlumnoService {
 
 
   listarAlumno(params: any) {
-    return this.http.post(`${this.URL}alumnos/listarAlumnos.php`,JSON.stringify(params));
+    return this.http.post(`${this.URL}alumnos/listarUser.php`,JSON.stringify(params));
   }
 
   // eliminarProfesor(nombreProfesor) {
-  //   return this.http.get(`${this.URL}eliminarProfesor.php?nombreProfesor=${nombreProfesor}`);
+  //   return this.http.get(`${this.URL}eliminarAdmin.php?nombreProfesor=${nombreProfesor}`);
   // }
   modificarAlumno(alumno:Alumno) {
    console.log(alumno);
 
-    return this.http.post(`${this.URL}alumnos/modificarAlumnos.php`,JSON.stringify(alumno));
+    return this.http.post(`${this.URL}alumnos/modificarUser.php`,JSON.stringify(alumno));
   }
 
   unirseRanking(ranking:Ranking){
@@ -48,11 +48,11 @@ export class ServerAlumnoService {
       psswConf: psswConf,
       avatar: avatar
     }
-    return this.http.post(`${this.URL}alumnos/insertarAlumnos.php`,JSON.stringify(alumnos));
+    return this.http.post(`${this.URL}alumnos/insertarUser.php`,JSON.stringify(alumnos));
   }
 
   editarImagen(alumno: any){
-    return this.http.post(`${this.URL}alumnos/modificarAlumnos.php`,JSON.stringify(alumno));
+    return this.http.post(`${this.URL}alumnos/modificarUser.php`,JSON.stringify(alumno));
   }
 
   // modificarProfesorEquipos(nombreProfesor, modoEquipos){

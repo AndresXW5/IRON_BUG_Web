@@ -24,3 +24,8 @@ CAMBIOS PENDIENTES:
     -
   }
 }
+
+
+HACIENDO:
+
+CABIAR nombre variables de login...
