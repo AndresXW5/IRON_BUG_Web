@@ -1,0 +1,26 @@
+DOCUMENTO PARA IDENTIFICAR CAMBIOS Y NOVEDADES
+
+-Inicio de sesion como user ✅
+-Inicio ´´ ´´´como admin ✅
+
+-Registro user ✅
+-Registro admin => No se podra registrar desde el mismo sito que el usuario, lo tendra que registrar otro administrador desde su perfil
+        [Cambiar ruta y poner boton en admin-profile]
+
+
+
+
+CAMBIOS PENDIENTES:
+
+-Quitar nombres de Gamifika [alguno creo que no se puede quitar, da errores]
+
+-Cambiar nombres de variables{
+  -usuario{
+    -
+    -
+  }
+  -administrador{
+    -
+    -
+  }
+}

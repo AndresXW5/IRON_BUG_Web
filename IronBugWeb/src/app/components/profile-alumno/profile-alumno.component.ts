@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
-import { ServerRankingService } from '../../server/server-ranking.service';
+import { ServerRankingService } from './../../server/server-ranking.service';
 import { Alumno, Ranking } from 'src/app/interfaces/interfaz';
 import Swal from 'sweetalert2';
 
@@ -13,6 +13,10 @@ export class ProfileAlumnoComponent implements OnInit {
 
   router: Router;
   route: ActivatedRoute;
+  name_r  = '';
+  algo: Object | undefined;
+  rankingTodo: any;
+
 
   constructor(router: Router, route: ActivatedRoute, private service: ServerAlumnoService, private serverRankingService: ServerRankingService) {
 
@@ -20,7 +24,7 @@ export class ProfileAlumnoComponent implements OnInit {
     this.router = router;
   }
 
-  alumno: Alumno = {
+  alumno:Alumno = {
     id_alumno: 0,
     nick: '',
     fname: "",
@@ -43,14 +47,21 @@ export class ProfileAlumnoComponent implements OnInit {
     avatar: ""
   }
 
-  // rankings = []
   ranking: Ranking = {
     id_r: 0,
+    id_alumno: 0,
     name_r: "",
-    cont_r: 0
+    codigo: 0
   }
 
+  // rankingList: Ranking[] = [];
 
+
+  ranking_=['Queso','Macarrones','Tomate','Virria'];
+  // ListRanking = [this.ranking.name_r, 'name_r', 'cont_r',];
+  ListRanking = ['id_r', 'name_r', 'cont_r',];
+
+  rankingsArray: [] | any;
 
   ngOnInit(): void {
     this.alumno = {
@@ -73,11 +84,22 @@ export class ProfileAlumnoComponent implements OnInit {
 
           // this.listar_ranking();
     this.serverRankingService.listarRanking(this.ranking).subscribe(
+      (datos: any) => {
+        console.log("lISTAR ORIGINAL",this.ranking);// NO llega
+        this.rankingsArray = datos;
+      }
+    );
+
+
+          //Listar todo para verificar el ranking al que se puede unir el alumno
+          this.serverRankingService.listarTodoRanking(this.ranking).subscribe(
             (datos: any) => {
               this.ranking = datos;
-              console.log(this.ranking);
+              console.log("Listar Todos ==>", this.ranking);
             }
           );
+
+
 
     }
 
@@ -85,21 +107,20 @@ export class ProfileAlumnoComponent implements OnInit {
         localStorage.clear();
         this.router.navigate(['']);
       }
-
+      _ranking(){
+        this.router.navigate(['ranking']);
+      }
       listar_ranking(){
         this.router.navigate(['ranking']);
       }
-
       editar(){
         this.router.navigate(['editar-alumno', this.alumno]);
-
       }
       addRank(){
 
       }
 
       async editarImagen() {
-
         const { value: file } = await Swal.fire({
           title: 'Select image',
           input: 'file',
@@ -139,57 +160,82 @@ export class ProfileAlumnoComponent implements OnInit {
             reader.readAsDataURL(file);
         }
       }
+
       async unirseRanking() {
 
-        const { value: file } = await Swal.fire({
+        const { value: codigo } = await Swal.fire({
           title: 'Unirse ranking',
           input: 'text',
           text: 'Introduzca el codigo para unirte'
         })
+            // console.log("El codigo de la BD es: ", this.ranking);   //this.ranking.codigo
+            console.log("El codigo introducido es: ", codigo);
+
+        // if(this.ranking.codigo == codigo){
+          console.log("Dentro");
+          this.serverRankingService.unirseRanking(codigo).subscribe(
+              datos => {
+                if(datos == 'NO'){
+                  Swal.fire(
+                    'Error',
+                    'No existe.',
+                    'error'
+                  )
+                }else if (datos == 'OK'){
+                  Swal.fire(
+                    'Error',
+                    'Ya estas en este ranking.',
+                    'error'
+                  )
+                }
+            }
+          );
+        // }else{
+        //   console.log("No entra en el 'if'");
+        // }
       }
 
       async modifyPassword() {
-
-        const { value: password } = await Swal.fire({
-          title: 'Enter your password',
-          input: 'password',
-          inputLabel: 'Password',
-          inputPlaceholder: 'Enter your password',
-
+        const { value: formValues } = await Swal.fire({
+          title: 'Cambiar la contraseña',
+          html:
+            '<label>Contraseña actual</label>' +
+            '<input class="form-control" id="passw" type="password" placeholder="Contraseña actual" maxlenght>' +
+            '<label>Nueva Contraseña</label>' +
+            '<input class="form-control" id="newPassw" type="password" placeholder="Contraseña actual" maxlenght>' +
+            '<label>Confirmar nueve Contraseña</label>' +
+            '<input class="form-control" id="confNewPassw" type="password" placeholder="Contraseña actual" maxlenght>',
+          focusConfirm: false,
+          preConfirm: () => {
+            return [
+              (document.getElementById("passw") as HTMLFormElement).value,
+              (document.getElementById("newPassw") as HTMLFormElement).value,
+              (document.getElementById("confNewPassw") as HTMLFormElement).value
+            ]
+          }
         })
+        if (formValues) {
+          if (formValues[0] != this.alumno.pssw) {
+            console.log('contrasenia actual no coinside');
 
-        if (password) {
-          Swal.fire(`Entered password: ${password}`)
-        }
-        if (password) {
-            const reader = new FileReader()
-            reader.onload = (e) => {
-              const imageUrl = reader.result;
-              this.modificarAlumno.id_alumno = this.alumno.id_alumno;
-              let old = this.modificarAlumno.avatar;
-              this.modificarAlumno = this.alumno;
-              this.modificarAlumno.avatar = imageUrl;
+          }
+          else if (formValues[1] != formValues[2]) {
+            console.log('contrasenia nueva no coinside');
 
-              this.alumno = this.modificarAlumno;
-              console.log(this.alumno);
-              this.service.editarImagen(this.alumno).subscribe(
-                datos => {
-                  if(datos == 'OK'){
-                    localStorage.setItem('usuario', JSON.stringify(this.alumno));
-                    Swal.fire(
-                      'Correcto',
-                    )
-                  }else{
-                    this.alumno = old;
-                    Swal.fire(
-                      'Error',
-                  )
+          }
+          else {
+            this.alumno.pssw = formValues[1];
+            this.service.modificarAlumno(this.alumno).subscribe(
+              (datos) => {
+                if (datos == 'OK') {
+                  console.log('ok');
+                }else{
+                  console.log('nooo');
                 }
               }
-              );
-            }
-            reader.readAsDataURL(password);
+            );
+          }
         }
       }
+  }
 
-    }

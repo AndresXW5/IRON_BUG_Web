@@ -15,26 +15,21 @@
   $conexion = conexion(); // CREA LA CONEXION
 
   // REALIZA LA QUERY A LA BD
-  //$listado = mysqli_query($conexion, "SELECT * FROM ranking WHERE id_alumno = '$unirse->id_alumno'");
-  $listado = mysqli_query($conexion, "SELECT * FROM r_alumno WHERE id_alumno = '$unirse->id_alumno'");
-
-  // while ($resultado = mysqli_fetch_array($listado)) {
-  //   $ranking[] = $resultado;
-  // }
+  $listado = mysqli_query($conexion, "SELECT * FROM ranking");
 
   while ($resultadoArray = mysqli_fetch_array($listado)) {
-    $rankingsArray[] = $resultadoArray;
+    $rankingsArrayTodo[] = $resultadoArray;
   }
-
 
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
   $resultado = $listado->fetch_assoc();
 
-  $json = json_encode($rankingsArray); // GENERA EL JSON CON LOS DATOS OBTENIDOS
+  $json = json_encode($rankingsArrayTodo); // GENERA EL JSON CON LOS DATOS OBTENIDOS
 
   header('Content-Type: application/json'); //envía el encabezado http json al navegador para informarle qué tipo de datos espera.
 
   echo $json; // MUESTRA EL JSON GENERADO AL EJECUTAR DIRECTAMENTE EL LOCALHOST
+
 
 
 ?>

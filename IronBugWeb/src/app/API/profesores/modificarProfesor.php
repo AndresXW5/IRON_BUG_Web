@@ -6,28 +6,28 @@
     header('Access-Control-Allow-Credentials: true');
     header('Access-Control-Allow-Headers: Authorization');
     header('Content-Type application/json; charset=utf-8');
-   
-    
- 
+
+
+
 
   global $datos;
- 
+
   require("../db.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
   $conexion = conexion(); // CREA LA CONEXION
 
   $json = file_get_contents('php://input');
   $profesores =json_decode($json);
- 
+
   // echo "Php abierto correctamente";
   // echo $json;
 
   // REALIZA LA QUERY A LA DB
- $registros = mysqli_query($conexion, "UPDATE `profesores` SET nick = '$profesores->nick', fname = '$profesores->fname', lname = '$profesores->lname', mail = '$profesores->mail', centro = '$profesores->centro', avatar = '$profesores->avatar' WHERE id_profesor ='$profesores->id_profesor';");
+ $registros = mysqli_query($conexion, "UPDATE `profesores` SET nick = '$profesores->nick', fname = '$profesores->fname', lname = '$profesores->lname', mail = '$profesores->mail', centro = '$profesores->centro',pssw = '$profesores->pssw', psswConf = '$profesores->psswConf', avatar = '$profesores->avatar' WHERE id_profesor ='$profesores->id_profesor';");
 
 
   // GENERA LOS DATOS DE RESPUESTA
     if($registros){
-      $resultado = 'OK';  
+      $resultado = 'OK';
     }else{
       $resultado = 'No';
     }

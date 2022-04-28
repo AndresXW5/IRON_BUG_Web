@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
   ranking: Ranking = {
     id_r: 0,
     name_r: "",
-    cont_r: 0
+    codigo: 0
   }
 
 
@@ -91,11 +91,11 @@ export class LoginComponent implements OnInit {
     });
     console.log(this.ServiceService);
 
-    this.ranking = {
-      id_r: Number(this.route.snapshot.paramMap.get('id_r')),
-      name_r: String(this.route.snapshot.paramMap.get('name_r')),
-      cont_r: Number(this.route.snapshot.paramMap.get('cont_r'))
-    }
+    // this.ranking = {
+    //   id_r: Number(this.route.snapshot.paramMap.get('id_r')),
+    //   name_r: String(this.route.snapshot.paramMap.get('name_r')),
+    //   cont_r: Number(this.route.snapshot.paramMap.get('cont_r'))
+    // }
 
   }
 
@@ -119,11 +119,8 @@ export class LoginComponent implements OnInit {
 
   //Funcion para conectar con el php
   listarProfesor(){
-
     this.profesorInicio.mail =  this.profes.mail;
     this.profesorInicio.pssw = this.profes.pssw;
-
-
 
     this.serverProfesorService.listarProfesor(this.profesorInicio).subscribe(
       datos  => {
@@ -141,8 +138,8 @@ export class LoginComponent implements OnInit {
       //     this.router.navigate(['palumno',datos]);
       //   }
       // );
-
   }
+
   listarAlumno(){
 
     this.alumnoInicio.mail =  this.alumnos.mail;

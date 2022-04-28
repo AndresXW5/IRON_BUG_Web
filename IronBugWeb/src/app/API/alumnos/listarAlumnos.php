@@ -6,7 +6,7 @@
   header('Access-Control-Allow-Headers: Authorization');
   header('Content-Type text/html; charset=utf-8');
   header('Content-Type: application/json'); //envía el encabezado http json al navegador para informarle qué tipo de datos espera.
-
+ 
   $json = file_get_contents('php://input');
   $alumnoParam = json_decode($json);
 

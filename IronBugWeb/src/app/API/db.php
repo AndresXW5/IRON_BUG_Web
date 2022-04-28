@@ -6,7 +6,7 @@ global  $enlace;
 function conexion() {
 
   //conexion a la BD
-  $enlace = mysqli_connect('localhost','root','usbw','ajesty');
+  $enlace = mysqli_connect('localhost','root','usbw','iron_bug_web');
     mysqli_set_charset($enlace,"utf8");
 
     if (!$enlace) {
@@ -16,6 +16,7 @@ function conexion() {
       exit;
      }
     return $enlace;
+
     }
 
 ?>

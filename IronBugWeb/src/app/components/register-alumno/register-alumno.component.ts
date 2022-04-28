@@ -61,7 +61,6 @@ export class RegisterAlumnoComponent implements OnInit {
 
   //Funcion para conectar con el php
   registrarAlumno(){
-
     this.serverAlumnoService.insertarAlumnos(this.alumnos.id_alumno,this.alumnos.nick, this.alumnos.fname, this.alumnos.lname, this.alumnos.mail, this.alumnos.fecha, this.alumnos.pssw, this.alumnos.psswConf, this.alumnos.avatar).subscribe(
       datos  => this.alumnoParam = datos
       );

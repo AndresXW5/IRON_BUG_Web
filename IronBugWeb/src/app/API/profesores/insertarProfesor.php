@@ -5,12 +5,12 @@
     header('Access-Control-Allow-Credentials: true');
     header('Access-Control-Allow-Headers: Authorization');
     header('Content-Type application/json; charset=utf-8');
-   
+
     $json =file_get_contents('php://input');
     $profesores =json_decode($json);
 
   global $datos;
- 
+
   require("../db.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
   $conexion = conexion(); // CREA LA CONEXION
 
@@ -22,14 +22,14 @@
   echo $json;
 
   // REALIZA LA QUERY A LA DB
- $registros = mysqli_query($conexion, "INSERT INTO `profesores` (`id_profesor`, `nick`, `fname`, `lname`, `mail`, `centro`, `pssw`, `psswConf`,`avatar`)  
+ $registros = mysqli_query($conexion, "INSERT INTO `admin` (`id_admin`, `nick`, `fname`, `lname`, `mail`, `centro`, `pssw`, `psswConf`,`avatar`)
  VALUES (NULL, '$profesores->nick', '$profesores->fname', '$profesores->lname', '$profesores->mail', '$profesores->centro', '$profesores->pssw', '$profesores->psswConf', '$profesores->avatar')");
 
 
   echo "$registros";
   // GENERA LOS DATOS DE RESPUESTA
     if($registros){
-      $resultado = 'OK';  
+      $resultado = 'OK';
     }else{
       $resultado = 'NO';
     }
@@ -38,7 +38,7 @@
   echo json_encode($resultado); // MUESTRA EL JSON GENERADO
 
 
- 
+
 
 ?>
 
