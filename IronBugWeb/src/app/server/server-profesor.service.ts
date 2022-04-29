@@ -14,7 +14,7 @@ export class ServerProfesorService {
   constructor(private http: HttpClient) { }
 
   listarProfesor(profesor: any) {
-    return this.http.post(`${this.URL}profesores/listarAdmin.php`,JSON.stringify(profesor));
+    return this.http.post(`${this.URL}admin/listarAdmin.php`,JSON.stringify(profesor));
   }
 
 
@@ -29,7 +29,7 @@ export class ServerProfesorService {
   modificarProfesor(profe:Profe) {
 
     console.log(profe);
-    return this.http.post(`${this.URL}profesores/modificarAdmin.php`,JSON.stringify(profe));
+    return this.http.post(`${this.URL}admin/modificarAdmin.php`,JSON.stringify(profe));
   }
 
 
@@ -45,11 +45,11 @@ export class ServerProfesorService {
       psswConf: psswConf,
       avatar: avatar
     }
-    return this.http.post(`${this.URL}profesores/insertarAdmin.php`,JSON.stringify(profes));
+    return this.http.post(`${this.URL}admin/insertarAdmin.php`,JSON.stringify(profes));
   }
   editarImagen(profe: any){
 
-    return this.http.post(`${this.URL}profesores/modificarAdmin.php`,JSON.stringify(profe));
+    return this.http.post(`${this.URL}admin/modificarAdmin.php`,JSON.stringify(profe));
   }
 
   // anadirRanking(ranking:Ranking){
@@ -81,7 +81,7 @@ export class ServerProfesorService {
   // }
 
   // modificarProfesor(){
-  //   return this.http.post(`${this.URL}profesores/modificarProfesor.php`,JSON.stringify(profes));
+  //   return this.http.post(`${this.URL}admin/modificarProfesor.php`,JSON.stringify(profes));
   // }
 
 

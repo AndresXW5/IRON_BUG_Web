@@ -9,7 +9,7 @@
   $conexion = conexion(); // CREA LA CONEXION
 
   // REALIZA LA QUERY A LA DB
-  mysqli_query($conexion, "DELETE FROM profesores WHERE id_profesor ='$_GET[id_profesor]'");
+  mysqli_query($conexion, "DELETE FROM `admin` WHERE id_admin ='$_GET[id_admin]'");
 
 
   class Result {}
@@ -17,7 +17,7 @@
   // GENERA LOS DATOS DE RESPUESTA
   $response = new Result();
   $response->resultado = 'OK';
-  $response->mensaje = 'EL PROFESOR SE ELIMINO EXITOSAMENTE';
+  $response->mensaje = 'EL admin SE ELIMINO EXITOSAMENTE';
 
   header('Content-Type: application/json');
 

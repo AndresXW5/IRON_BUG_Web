@@ -1,5 +1,4 @@
-
-  <?php
+<?php
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
     header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
@@ -7,32 +6,41 @@
     header('Access-Control-Allow-Headers: Authorization');
     header('Content-Type application/json; charset=utf-8');
 
-
-
+    $json =file_get_contents('php://input');
+    $profesores =json_decode($json);
 
   global $datos;
 
   require("../db.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
   $conexion = conexion(); // CREA LA CONEXION
 
+  //Documentacion https://www.php.net/manual/es/wrappers.php.php
   $json = file_get_contents('php://input');
-  $profesores =json_decode($json);
 
-  // echo "Php abierto correctamente";
-  // echo $json;
+  $params = json_decode($json);
+
+  echo $json;
 
   // REALIZA LA QUERY A LA DB
- $registros = mysqli_query($conexion, "UPDATE `profesores` SET nick = '$profesores->nick', fname = '$profesores->fname', lname = '$profesores->lname', mail = '$profesores->mail', centro = '$profesores->centro',pssw = '$profesores->pssw', psswConf = '$profesores->psswConf', avatar = '$profesores->avatar' WHERE id_profesor ='$profesores->id_profesor';");
+ $registros = mysqli_query($conexion, "INSERT INTO `admin` (`id_admin`, `nick`, `fname`, `lname`, `mail`, `centro`, `pssw`, `psswConf`,`avatar`)
+ VALUES (NULL, '$admin->nick', '$admin->fname', '$admin->lname', '$admin->mail', '$admin->centro', '$admin->pssw', '$admin->psswConf', '$admin->avatar')");
 
 
+  echo "$registros";
   // GENERA LOS DATOS DE RESPUESTA
     if($registros){
       $resultado = 'OK';
     }else{
-      $resultado = 'No';
+      $resultado = 'NO';
     }
   header('Content-Type: application/json');
 
   echo json_encode($resultado); // MUESTRA EL JSON GENERADO
 
+
+
+
 ?>
+
+
+
