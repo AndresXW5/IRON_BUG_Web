@@ -1,4 +1,4 @@
-export interface Profe {
+export interface Admin {
   id_profesor :number;
   nick :string;
   fname :string;

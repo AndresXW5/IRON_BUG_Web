@@ -2,7 +2,7 @@ import { ServerRankingService } from './../../server/server-ranking.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Alumno, Profe, Ranking } from 'src/app/interfaces/interfaz';
+import { Alumno, Admin, Ranking } from 'src/app/interfaces/interfaz';
 import { ServiceService } from 'src/app/server/service.service';
 import { ServerProfesorService } from 'src/app/server/server-profesor.service';
 import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
@@ -48,9 +48,9 @@ export class LoginComponent implements OnInit {
   alumnoParam: any;
 
   profesArray = [];
-  profe!:FormGroup;
+  admin!:FormGroup;
 
-  profes:Profe|any = {
+  admin_:Admin|any = {
     id_profesor: 0,
     nick: "",
     fname:"" ,
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
   };
 
   ngOnInit() : void {
-    this.profe =  this.formBuilder.group({
+    this.admin =  this.formBuilder.group({
       mail: ['', [Validators.required, Validators.email]],
       pssw: ['', [Validators.required,Validators.minLength(8)]],
     });
@@ -100,27 +100,17 @@ export class LoginComponent implements OnInit {
   }
 
   get data() {
-      if(this.profe){
-      return this.profe.controls;
+      if(this.admin){
+      return this.admin.controls;
     }else{
       return this.alumno.controls;
     }
   }
 
-
-
-  //  onSubmit() {
-  //   if(this.profe){
-  //     this.listarProfesor();
-  //   }else{
-  //     this.listarAlumno();
-  //     }
-  //   }
-
   //Funcion para conectar con el php
   listarProfesor(){
-    this.profesorInicio.mail =  this.profes.mail;
-    this.profesorInicio.pssw = this.profes.pssw;
+    this.profesorInicio.mail =  this.admin_.mail;
+    this.profesorInicio.pssw = this.admin_.pssw;
 
     this.serverProfesorService.listarProfesor(this.profesorInicio).subscribe(
       datos  => {

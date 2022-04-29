@@ -12,7 +12,6 @@ import { faNotesMedical } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./edit-profile-alumno.component.css']
 })
 export class EditProfileAlumnoComponent implements OnInit {
-// public profes:Profe[] = [] ;
 router: Router;
 route: ActivatedRoute;
 alums!: FormGroup;
@@ -50,7 +49,7 @@ ngOnInit(): void {
     pssw: String(this.route.snapshot.paramMap.get('pssw')),
     psswConf: String(this.route.snapshot.paramMap.get('psswConf')),
     avatar: String(this.route.snapshot.paramMap.get('avatar'))
-    
+
 };
 
 this.alums = this.formBuilder.group({

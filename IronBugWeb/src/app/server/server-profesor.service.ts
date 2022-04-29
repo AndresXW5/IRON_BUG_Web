@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Entrega, Profe,Ranking} from '../interfaces/interfaz';
+import { Entrega, Admin, Ranking} from '../interfaces/interfaz';
 
 
 @Injectable({
@@ -26,15 +26,15 @@ export class ServerProfesorService {
   //   return this.http.get(`${this.URL}eliminarAdmin.php?nombreProfesor=${nombreProfesor}`);
   // }
 
-  modificarProfesor(profe:Profe) {
+  modificarProfesor(admin:Admin) {
 
-    console.log(profe);
-    return this.http.post(`${this.URL}admin/modificarAdmin.php`,JSON.stringify(profe));
+    console.log(admin);
+    return this.http.post(`${this.URL}admin/modificarAdmin.php`,JSON.stringify(admin));
   }
 
 
   insertarProfesor(id_profesor: any, nick: any, fname: any, lname: any, mail: any, centro: any, pssw: any, psswConf: any, avatar: any){
-    let profes: Profe = {
+    let admin_: Admin = {
       id_profesor: id_profesor,
       nick: nick,
       fname: fname,
@@ -45,11 +45,11 @@ export class ServerProfesorService {
       psswConf: psswConf,
       avatar: avatar
     }
-    return this.http.post(`${this.URL}admin/insertarAdmin.php`,JSON.stringify(profes));
+    return this.http.post(`${this.URL}admin/insertarAdmin.php`,JSON.stringify(admin_));
   }
-  editarImagen(profe: any){
+  editarImagen(admin: any){
 
-    return this.http.post(`${this.URL}admin/modificarAdmin.php`,JSON.stringify(profe));
+    return this.http.post(`${this.URL}admin/modificarAdmin.php`,JSON.stringify(admin));
   }
 
   // anadirRanking(ranking:Ranking){

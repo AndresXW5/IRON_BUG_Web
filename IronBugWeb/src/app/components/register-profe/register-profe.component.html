@@ -30,13 +30,13 @@
               <h2 class="fw-bold mb-2 text-uppercase">Registrarse</h2>
               <hr size="7" class="rounded">
 
-              <form [formGroup]="profe" (ngSubmit)="onSubmit()" class="p-3 mt-3">
+              <form [formGroup]="admin" (ngSubmit)="onSubmit()" class="p-3 mt-3">
                 <div class="row">
                   <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="form-outline form-white mb-4 ">
                       <label class="form-label" for="nick">Apodo</label>
                       <input type="text" id="nick" class="form-control form-control-lg" placeholder="Apodo"
-                        formControlName="nick" [(ngModel)]="profes.nick">
+                        formControlName="nick" [(ngModel)]="admin_.nick">
 
                     <div *ngIf="data.nick.errors">
                       <div *ngIf="data.nick.errors?.required">
@@ -52,7 +52,7 @@
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="fname">Nombre</label>
                       <input type="text" id="fname" class="form-control form-control-lg" placeholder="Nombre"
-                        formControlName="fname" [(ngModel)]="profes.fname">
+                        formControlName="fname" [(ngModel)]="admin_.fname">
 
                     <div *ngIf="data.fname.errors">
                       <div *ngIf="data.fname.errors.required">
@@ -68,7 +68,7 @@
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="lname">Apellido</label>
                       <input type="text" id="lname" class="form-control form-control-lg" placeholder="Apellido"
-                        formControlName="lname" [(ngModel)]="profes.lname">
+                        formControlName="lname" [(ngModel)]="admin_.lname">
 
 
                     <div *ngIf="data.lname.errors">
@@ -85,7 +85,7 @@
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="centro">Centro</label>
                       <input type="text" id="centro" class="form-control form-control-lg" placeholder="Centro"
-                        formControlName="centro" [(ngModel)]="profes.centro">
+                        formControlName="centro" [(ngModel)]="admin_.centro">
 
 
                     <div *ngIf="data.centro.errors">
@@ -100,7 +100,7 @@
 
                       <label class="form-label" for="mail">Email</label>
                       <input type="mail" id="mail" class="form-control form-control-lg" placeholder="ejemplo@mail.com"
-                        formControlName="mail" [(ngModel)]="profes.mail">
+                        formControlName="mail" [(ngModel)]="admin_.mail">
 
 
                    <div *ngIf="data.mail.errors">
@@ -117,7 +117,7 @@
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="typePassword">Contraseña</label>
                       <input type="password" id="typePassword" class="form-control form-control-lg"
-                        placeholder="********" formControlName="pssw" [(ngModel)]="profes.pssw">
+                        placeholder="********" formControlName="pssw" [(ngModel)]="admin_.pssw">
 
 
                     <div *ngIf="data.pssw.errors">
@@ -131,7 +131,7 @@
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="typePasswordConf">Confirmar Contraseña</label>
                       <input type="password" id="typePasswordConf" class="form-control form-control-lg"
-                        placeholder="********" formControlName="psswConf" [(ngModel)]="profes.psswConf">
+                        placeholder="********" formControlName="psswConf" [(ngModel)]="admin_.psswConf">
 
 
                     <div *ngIf="data.psswConf.errors">
@@ -145,7 +145,7 @@
                     </div>
                   </div>
                 </div>
-                <button class="btn btn-outline-light btn-lg px-5"    type="submit"  [disabled]="!profe.valid" >Registrase</button>
+                <button class="btn btn-outline-light btn-lg px-5"    type="submit"  [disabled]="!admin.valid" >Registrase</button>
               </form>
 
             </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Profe } from 'src/app/interfaces/interfaz';
+import { Admin } from 'src/app/interfaces/interfaz';
 import { ServiceService } from 'src/app/server/service.service';
 import { Router } from '@angular/router';
 import { PasswordValidator } from 'src/app/validator/password.validator';
@@ -14,12 +14,12 @@ import { ServerProfesorService } from 'src/app/server/server-profesor.service';
 })
 export class RegisterProfeComponent implements OnInit {
   profesArray = [];
-  profe!:FormGroup;
+  admin!:FormGroup;
   submitted = false;
   ServiceService: any;
   isValidFormSubmitted = false;
 
-  profes:Profe = {
+  admin_:Admin = {
     id_profesor: 0,
     nick: "",
     fname:"" ,
@@ -40,7 +40,7 @@ export class RegisterProfeComponent implements OnInit {
 
   };
   ngOnInit(): void {
-    this.profe =  this.formBuilder.group( {
+    this.admin =  this.formBuilder.group( {
       nick:['', [Validators.required, Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z0-9]+$')]],
       fname:['', [Validators.required, Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z]+$')]],
       lname:['', [Validators.required,Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z]+$') ]],
@@ -64,12 +64,12 @@ export class RegisterProfeComponent implements OnInit {
 
   //Funcion para conectar con el php
   registrarProfesor(){
-    this.serverProfesorService.insertarProfesor(this.profes.id_profesor,this.profes.nick, this.profes.fname, this.profes.lname, this.profes.mail, this.profes.centro, this.profes.pssw, this.profes.psswConf,this.profes.avatar).subscribe(
+    this.serverProfesorService.insertarProfesor(this.admin_.id_profesor,this.admin_.nick, this.admin_.fname, this.admin_.lname, this.admin_.mail, this.admin_.centro, this.admin_.pssw, this.admin_.psswConf,this.admin_.avatar).subscribe(
       datos  => this.profesores = datos
     );
  this.router.navigate(['login']);
   }
-  get data() { return this.profe.controls; }
+  get data() { return this.admin.controls; }
 
 
   volver(){

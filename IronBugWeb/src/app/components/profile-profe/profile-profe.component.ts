@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Entrega, Profe, Ranking } from 'src/app/interfaces/interfaz';
+import { Entrega, Admin, Ranking } from 'src/app/interfaces/interfaz';
 import { ServerProfesorService } from 'src/app/server/server-profesor.service';
 import { FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -28,7 +28,7 @@ export class ProfileProfeComponent implements OnInit {
     this.serverProfesorService = service;
 
   }
-  profe: Profe = {
+  admin: Admin = {
     id_profesor: 0,
     nick: '',
     fname: "",
@@ -72,7 +72,7 @@ export class ProfileProfeComponent implements OnInit {
   rankingsArray: [] | any;
 
   ngOnInit(): void {
-    this.profe = {
+    this.admin = {
       id_profesor: Number(this.route.snapshot.paramMap.get('id_profesor')),
       fname: String(this.route.snapshot.paramMap.get('fname')),
       lname: String(this.route.snapshot.paramMap.get('lname')),
@@ -113,7 +113,7 @@ export class ProfileProfeComponent implements OnInit {
     this.router.navigate(['']);
   }
   editar() {
-    this.router.navigate(['editar-profe', this.profe]);
+    this.router.navigate(['editar-profe', this.admin]);
   }
 
   async editarImagen() {
@@ -131,22 +131,22 @@ export class ProfileProfeComponent implements OnInit {
       const reader = new FileReader()
       reader.onload = (e) => {
         const imageUrl = reader.result;
-        this.modificarProfesor.id_profesor = this.profe.id_profesor;
+        this.modificarProfesor.id_profesor = this.admin.id_profesor;
         let old = this.modificarProfesor.avatar;
-        this.modificarProfesor = this.profe;
+        this.modificarProfesor = this.admin;
         this.modificarProfesor.avatar = imageUrl;
 
-        this.profe = this.modificarProfesor;
-        console.log(this.profe);
-        this.service.editarImagen(this.profe).subscribe(
+        this.admin = this.modificarProfesor;
+        console.log(this.admin);
+        this.service.editarImagen(this.admin).subscribe(
           datos => {
             if (datos == 'OK') {
-              localStorage.setItem('usuario', JSON.stringify(this.profe));
+              localStorage.setItem('usuario', JSON.stringify(this.admin));
               Swal.fire(
                 'Correcto',
               )
             } else {
-              this.profe = old;
+              this.admin = old;
               Swal.fire(
                 'Error',
               )
@@ -179,7 +179,7 @@ export class ProfileProfeComponent implements OnInit {
       }
     })
     if (formValues) {
-      if (formValues[0] != this.profe.pssw) {
+      if (formValues[0] != this.admin.pssw) {
         console.log('contrasenia actual no coinside');
 
       }
@@ -188,8 +188,8 @@ export class ProfileProfeComponent implements OnInit {
 
       }
       else {
-        this.profe.pssw = formValues[1];
-        this.service.modificarProfesor(this.profe).subscribe(
+        this.admin.pssw = formValues[1];
+        this.service.modificarProfesor(this.admin).subscribe(
           (datos) => {
             if (datos == 'OK') {
               console.log('ok');
@@ -227,18 +227,18 @@ export class ProfileProfeComponent implements OnInit {
           }
           )}
       }
-    
+
   async anadirEntrega() {
 
       const { value: nombre } = await Swal.fire({
-  
+
           title: 'Asigne un nombre a la entrega',
           input: 'text',
           text: ''
-  
+
         })
         if(nombre){
-        
+
           this.service.anadirEntrega(nombre).subscribe(
             datos => {
               if (datos == 'OK') {

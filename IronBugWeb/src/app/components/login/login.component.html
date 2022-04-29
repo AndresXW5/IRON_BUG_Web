@@ -28,12 +28,12 @@
                 <h2 class="fw-bold mb-2 text-uppercase">Iniciar sesión</h2>
                   <hr size="7" class="rounded">
 
-                <form [formGroup]="profe" (ngSubmit)="listarProfesor()" class="p-3 mt-3">
+                <form [formGroup]="admin" (ngSubmit)="listarProfesor()" class="p-3 mt-3">
                 <div class="form-outline form-white mb-4">
                     <label class="form-label" for="typeEmailX">Correo</label>
                   <input type="email" id="typeEmailX" class="form-control form-control-lg"  placeholder="ejemplo@mail.com"
                   formControlName="mail"
-                  [(ngModel)]="profes.mail">
+                  [(ngModel)]="admin_.mail">
 
                 </div>
 
@@ -41,12 +41,12 @@
                     <label class="form-label" for="typePasswordX">Contraseña</label>
                   <input type="password" id="typePasswordX" class="form-control form-control-lg"   placeholder="********"
                   formControlName="pssw"
-                  [(ngModel)]="profes.pssw">
+                  [(ngModel)]="admin_.pssw">
 
                 </div>
              </form>
 
-                <button (click)="listarProfesor()" [disabled]="!profe.valid" class="btn btn-outline-light btn-lg px-5" type="submit">Iniciar Sesion</button>
+                <button (click)="listarProfesor()" [disabled]="!admin.valid" class="btn btn-outline-light btn-lg px-5" type="submit">Iniciar Sesion</button>
 
 
               </div>
