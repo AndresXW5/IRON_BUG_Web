@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Alumno } from 'src/app/interfaces/interfaz';
+import { Usuario } from 'src/app/interfaces/interfaz';
 import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -15,7 +15,7 @@ export class EditProfileAlumnoComponent implements OnInit {
 router: Router;
 route: ActivatedRoute;
 alums!: FormGroup;
-alumno:Alumno = {
+usuario: Usuario = {
   id_alumno: 0,
   nick: '',
   fname: "",
@@ -39,7 +39,7 @@ constructor(router: Router, route: ActivatedRoute, serverAlumnoService: ServerAl
 }
 
 ngOnInit(): void {
-  this.alumno = {
+  this.usuario = {
     id_alumno: Number(this.route.snapshot.paramMap.get('id_profesor')),
     fname: String(this.route.snapshot.paramMap.get('fname')),
     lname: String(this.route.snapshot.paramMap.get('lname')),
@@ -74,18 +74,18 @@ onSubmit() {
 }
 
 modificarAlumno(){
-  let alumno: Alumno = {
-    id_alumno: this.alumno.id_alumno,
-    nick: this.alumno.nick,
-    fname: this.alumno.fname,
-    lname: this.alumno.lname,
-    fecha: this.alumno.fecha,
-    mail: this.alumno.mail,
+  let usuario: Usuario = {
+    id_alumno: this.usuario.id_alumno,
+    nick: this.usuario.nick,
+    fname: this.usuario.fname,
+    lname: this.usuario.lname,
+    fecha: this.usuario.fecha,
+    mail: this.usuario.mail,
     pssw: '',
     psswConf: '',
     avatar: ''
   }
-  this.serverAlumnoService.modificarAlumno(alumno).subscribe(
+  this.serverAlumnoService.modificarAlumno(usuario).subscribe(
     (datos: string) => {
       if (datos == 'OK') {
         console.log('ok');
@@ -94,7 +94,7 @@ modificarAlumno(){
       }
     }
   );
-  this.router.navigate(['palumno', this.alumno]);
+  this.router.navigate(['palumno', this.usuario]);
 }
 // get data() { return this.profe.controls; }
 editar(){
@@ -102,7 +102,7 @@ editar(){
 }
 
 volver(){
-  this.router.navigate(['palumno',this.alumno]);
+  this.router.navigate(['palumno',this.usuario]);
   }
 
 }

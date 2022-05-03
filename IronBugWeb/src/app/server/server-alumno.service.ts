@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Alumno, Ranking } from '../interfaces/interfaz';
+import { Usuario, Ranking } from '../interfaces/interfaz';
 import { decimalDigest } from '@angular/compiler/src/i18n/digest';
 
 
@@ -23,10 +23,10 @@ export class ServerAlumnoService {
   // eliminarProfesor(nombreProfesor) {
   //   return this.http.get(`${this.URL}eliminarAdmin.php?nombreProfesor=${nombreProfesor}`);
   // }
-  modificarAlumno(alumno:Alumno) {
-   console.log(alumno);
+  modificarAlumno(usuario: Usuario) {
+   console.log(usuario);
 
-    return this.http.post(`${this.URL}usuarios/modificarUser.php`,JSON.stringify(alumno));
+    return this.http.post(`${this.URL}usuarios/modificarUser.php`,JSON.stringify(usuario));
   }
 
   unirseRanking(ranking:Ranking){
@@ -37,7 +37,7 @@ export class ServerAlumnoService {
 
   //Registrar nuevo usuario
   insertarAlumnos(id_alumno: any, nick: any, fname: any, lname: any, mail: any, fecha: any, pssw: any, psswConf: any, avatar: any){
-    let alumnos: Alumno = {
+    let usuarios: Usuario = {
       id_alumno: id_alumno,
       nick: nick,
       fname: fname,
@@ -48,11 +48,11 @@ export class ServerAlumnoService {
       psswConf: psswConf,
       avatar: avatar
     }
-    return this.http.post(`${this.URL}usuarios/insertarUser.php`,JSON.stringify(alumnos));
+    return this.http.post(`${this.URL}usuarios/insertarUser.php`,JSON.stringify(usuarios));
   }
 
-  editarImagen(alumno: any){
-    return this.http.post(`${this.URL}usuarios/modificarUser.php`,JSON.stringify(alumno));
+  editarImagen(usuario: any){
+    return this.http.post(`${this.URL}usuarios/modificarUser.php`,JSON.stringify(usuario));
   }
 
   // modificarProfesorEquipos(nombreProfesor, modoEquipos){

@@ -10,7 +10,7 @@ export interface Admin {
   avatar : string;
   }
 
-export interface Alumno {
+export interface Usuario {
   id_alumno :number;
   nick :string;
   fname :string;

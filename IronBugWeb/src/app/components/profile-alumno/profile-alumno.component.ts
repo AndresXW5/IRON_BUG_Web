@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
 import { ServerRankingService } from './../../server/server-ranking.service';
-import { Alumno, Ranking } from 'src/app/interfaces/interfaz';
+import { Usuario, Ranking } from 'src/app/interfaces/interfaz';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -24,7 +24,7 @@ export class ProfileAlumnoComponent implements OnInit {
     this.router = router;
   }
 
-  alumno:Alumno = {
+  usuario: Usuario = {
     id_alumno: 0,
     nick: '',
     fname: "",
@@ -65,7 +65,7 @@ export class ProfileAlumnoComponent implements OnInit {
   rankingsArray: [] | any;
 
   ngOnInit(): void {
-    this.alumno = {
+    this.usuario = {
            id_alumno: Number(this.route.snapshot.paramMap.get('id_alumno')),
             fname: String(this.route.snapshot.paramMap.get('fname')),
             lname: String(this.route.snapshot.paramMap.get('lname')),
@@ -92,7 +92,7 @@ export class ProfileAlumnoComponent implements OnInit {
     );
 
 
-          //Listar todo para verificar el ranking al que se puede unir el alumno
+          //Listar todo para verificar el ranking al que se puede unir el usuario
           this.serverRankingService.listarTodoRanking(this.ranking).subscribe(
             (datos: any) => {
               this.ranking = datos;
@@ -115,7 +115,7 @@ export class ProfileAlumnoComponent implements OnInit {
         this.router.navigate(['ranking']);
       }
       editar(){
-        this.router.navigate(['editar-alumno', this.alumno]);
+        this.router.navigate(['editar-alumno', this.usuario]);
       }
       addRank(){
 
@@ -135,22 +135,22 @@ export class ProfileAlumnoComponent implements OnInit {
             const reader = new FileReader()
             reader.onload = (e) => {
               const imageUrl = reader.result;
-              this.modificarAlumno.id_alumno = this.alumno.id_alumno;
+              this.modificarAlumno.id_alumno = this.usuario.id_alumno;
               let old = this.modificarAlumno.avatar;
-              this.modificarAlumno = this.alumno;
+              this.modificarAlumno = this.usuario;
               this.modificarAlumno.avatar = imageUrl;
 
-              this.alumno = this.modificarAlumno;
-              console.log(this.alumno);
-              this.service.editarImagen(this.alumno).subscribe(
+              this.usuario = this.modificarAlumno;
+              console.log(this.usuario);
+              this.service.editarImagen(this.usuario).subscribe(
                 datos => {
                   if(datos == 'OK'){
-                    localStorage.setItem('usuario', JSON.stringify(this.alumno));
+                    localStorage.setItem('usuario', JSON.stringify(this.usuario));
                     Swal.fire(
                       'Correcto',
                     )
                   }else{
-                    this.alumno = old;
+                    this.usuario = old;
                     Swal.fire(
                       'Error',
                   )
@@ -216,7 +216,7 @@ export class ProfileAlumnoComponent implements OnInit {
           }
         })
         if (formValues) {
-          if (formValues[0] != this.alumno.pssw) {
+          if (formValues[0] != this.usuario.pssw) {
             console.log('contrasenia actual no coinside');
 
           }
@@ -225,8 +225,8 @@ export class ProfileAlumnoComponent implements OnInit {
 
           }
           else {
-            this.alumno.pssw = formValues[1];
-            this.service.modificarAlumno(this.alumno).subscribe(
+            this.usuario.pssw = formValues[1];
+            this.service.modificarAlumno(this.usuario).subscribe(
               (datos) => {
                 if (datos == 'OK') {
                   console.log('ok');
