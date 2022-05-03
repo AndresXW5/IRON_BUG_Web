@@ -109,8 +109,8 @@
         <div class="col-md-12 mb-3">
           <div class="card">
             <div class="card-header">
-              <h4>RANKINGS ASSIGNADIOS</h4>
-                <button type="button" (click)="unirseRanking()"  class="btn btn-primary float-right">UNIRSE RANKING</button>
+              <h4>Carrito de {{ alumno.fname }} {{ alumno.lname }}</h4>
+                <!-- <button type="button" (click)="unirseRanking()"  class="btn btn-primary float-right">UNIRSE RANKING</button> -->
             </div>
             <div class="card-body">
 
@@ -123,7 +123,11 @@
                     </svg>
                       <!-- {{data.name_r_a}} --> Productos / Carrito
                   </h6>
-                    <button type="button" (click)="listar_ranking()" class="btn btn-primary float-right">VER</button>
+                  <div class="md-8">
+                    <button type="button" (click)="listar_ranking()" class="btn btn-primary float-right" style="margin-left: 20px;">VER</button>
+                    <button type="button" class="btn btn-success float-right" style="margin-left: 20px;">Cantidad</button>
+                    <button type="button" class="btn btn-danger float-right" style="margin-left: 20px;">Eliminar</button>
+                  </div>
                 </li>
               </ul>
             </div>

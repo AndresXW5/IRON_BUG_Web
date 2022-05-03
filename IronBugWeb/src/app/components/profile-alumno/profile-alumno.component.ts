@@ -35,6 +35,7 @@ export class ProfileAlumnoComponent implements OnInit {
     psswConf: "",
     avatar: ""
   }
+
   modificarAlumno: any = {
     id_alumno: 0,
     nick: '',
