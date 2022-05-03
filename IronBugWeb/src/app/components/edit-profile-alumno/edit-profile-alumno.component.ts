@@ -16,7 +16,7 @@ router: Router;
 route: ActivatedRoute;
 alums!: FormGroup;
 usuario: Usuario = {
-  id_alumno: 0,
+  id_usuario: 0,
   nick: '',
   fname: "",
   lname: "",
@@ -40,7 +40,7 @@ constructor(router: Router, route: ActivatedRoute, serverAlumnoService: ServerAl
 
 ngOnInit(): void {
   this.usuario = {
-    id_alumno: Number(this.route.snapshot.paramMap.get('id_profesor')),
+    id_usuario: Number(this.route.snapshot.paramMap.get('id_profesor')),
     fname: String(this.route.snapshot.paramMap.get('fname')),
     lname: String(this.route.snapshot.paramMap.get('lname')),
     nick: String(this.route.snapshot.paramMap.get('nick')),
@@ -75,7 +75,7 @@ onSubmit() {
 
 modificarAlumno(){
   let usuario: Usuario = {
-    id_alumno: this.usuario.id_alumno,
+    id_usuario: this.usuario.id_usuario,
     nick: this.usuario.nick,
     fname: this.usuario.fname,
     lname: this.usuario.lname,

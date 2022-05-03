@@ -21,7 +21,7 @@
 
   // REALIZA LA QUERY A LA DB
   //$registros = mysqli_query($conexion, "SELECT name_r FROM ranking WHERE codigo ='$unirse->codigo';");
-  $registros = mysqli_query($conexion, "INSERT INTO `r_alumno` (`id_alumno`, `id_r`, `name_r_a`) VALUES ('$_GET.....','$unirse->id_r', '$unirse->name_r_a')");
+  $registros = mysqli_query($conexion, "INSERT INTO `r_alumno` (`id_usuario`, `id_r`, `name_r_a`) VALUES ('$_GET.....','$unirse->id_r', '$unirse->name_r_a')");
 
 
   //echo "$registros";

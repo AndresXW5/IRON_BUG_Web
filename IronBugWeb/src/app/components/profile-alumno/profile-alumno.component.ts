@@ -25,7 +25,7 @@ export class ProfileAlumnoComponent implements OnInit {
   }
 
   usuario: Usuario = {
-    id_alumno: 0,
+    id_usuario: 0,
     nick: '',
     fname: "",
     lname: "",
@@ -37,7 +37,7 @@ export class ProfileAlumnoComponent implements OnInit {
   }
 
   modificarAlumno: any = {
-    id_alumno: 0,
+    id_usuario: 0,
     nick: '',
     fname: "",
     lname: "",
@@ -50,7 +50,7 @@ export class ProfileAlumnoComponent implements OnInit {
 
   ranking: Ranking = {
     id_r: 0,
-    id_alumno: 0,
+    id_usuario: 0,
     name_r: "",
     codigo: 0
   }
@@ -66,7 +66,7 @@ export class ProfileAlumnoComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuario = {
-           id_alumno: Number(this.route.snapshot.paramMap.get('id_alumno')),
+           id_usuario: Number(this.route.snapshot.paramMap.get('id_usuario')),
             fname: String(this.route.snapshot.paramMap.get('fname')),
             lname: String(this.route.snapshot.paramMap.get('lname')),
             nick: String(this.route.snapshot.paramMap.get('nick')),
@@ -135,7 +135,7 @@ export class ProfileAlumnoComponent implements OnInit {
             const reader = new FileReader()
             reader.onload = (e) => {
               const imageUrl = reader.result;
-              this.modificarAlumno.id_alumno = this.usuario.id_alumno;
+              this.modificarAlumno.id_usuario = this.usuario.id_usuario;
               let old = this.modificarAlumno.avatar;
               this.modificarAlumno = this.usuario;
               this.modificarAlumno.avatar = imageUrl;

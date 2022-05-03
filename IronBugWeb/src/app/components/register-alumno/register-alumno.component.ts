@@ -20,7 +20,7 @@ export class RegisterAlumnoComponent implements OnInit {
   isValidFormSubmitted = false;
 
   usuarios: Usuario = {
-    id_alumno: 0,
+    id_usuario: 0,
     nick: "",
     fname:"" ,
     lname:"" ,
@@ -61,7 +61,7 @@ export class RegisterAlumnoComponent implements OnInit {
 
   //Funcion para conectar con el php
   registrarAlumno(){
-    this.serverAlumnoService.insertarAlumnos(this.usuarios.id_alumno,this.usuarios.nick, this.usuarios.fname, this.usuarios.lname, this.usuarios.mail, this.usuarios.fecha, this.usuarios.pssw, this.usuarios.psswConf, this.usuarios.avatar).subscribe(
+    this.serverAlumnoService.insertarAlumnos(this.usuarios.id_usuario,this.usuarios.nick, this.usuarios.fname, this.usuarios.lname, this.usuarios.mail, this.usuarios.fecha, this.usuarios.pssw, this.usuarios.psswConf, this.usuarios.avatar).subscribe(
       datos  => this.usuarioParam = datos
       );
     this.router.navigate(['login']);

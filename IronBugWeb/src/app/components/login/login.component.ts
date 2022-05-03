@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   datosUsuario: any={
     id_profesor: 0,
-    id_alumno: 0,
+    id_usuario: 0,
     nick: "",
     fname:"" ,
     lname:"" ,
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     psswConf:"",
   }
   usuarios: Usuario|any = {
-    id_alumno: 0,
+    id_usuario: 0,
     nick: "",
     fname:"" ,
     lname:"" ,

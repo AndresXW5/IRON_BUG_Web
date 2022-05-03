@@ -11,7 +11,7 @@ export interface Admin {
   }
 
 export interface Usuario {
-  id_alumno :number;
+  id_usuario :number;
   nick :string;
   fname :string;
   lname :string;
@@ -25,7 +25,7 @@ export interface Usuario {
 
   export interface Ranking {
     id_r: number;
-    id_alumno?: number;
+    id_usuario?: number;
     name_r: string;
     codigo: number;
   }

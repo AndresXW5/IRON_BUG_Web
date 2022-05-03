@@ -59,7 +59,6 @@ export class ServerProfesorService {
   anadirRanking(name_r: any, codigo: number){
     let ranking: Ranking = {
       id_r: 0,
-      //id_alumno: id_alumno,
       name_r: name_r,
       codigo: codigo,
     }

@@ -36,9 +36,9 @@ export class ServerAlumnoService {
 
 
   //Registrar nuevo usuario
-  insertarAlumnos(id_alumno: any, nick: any, fname: any, lname: any, mail: any, fecha: any, pssw: any, psswConf: any, avatar: any){
+  insertarAlumnos(id_usuario: any, nick: any, fname: any, lname: any, mail: any, fecha: any, pssw: any, psswConf: any, avatar: any){
     let usuarios: Usuario = {
-      id_alumno: id_alumno,
+      id_usuario: id_usuario,
       nick: nick,
       fname: fname,
       lname: lname,

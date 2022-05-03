@@ -29,10 +29,10 @@ export class ServerRankingService {
     return this.http.get(`${this.URL}ranking/unirseRanking.php?codigo=${codigo}` );
   }
 
-  anadirRanking(id_r: any, id_alumno: any, name_r: any, codigo: any){
+  anadirRanking(id_r: any, id_usuario: any, name_r: any, codigo: any){
     let ranking: Ranking = {
       id_r: id_r,
-      id_alumno: id_alumno,
+      id_usuario: id_usuario,
       name_r: name_r,
       codigo: codigo,
     }
