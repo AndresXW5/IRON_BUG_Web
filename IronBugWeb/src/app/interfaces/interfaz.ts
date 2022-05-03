@@ -1,5 +1,5 @@
 export interface Admin {
-  id_profesor :number;
+  id_admin :number;
   nick :string;
   fname :string;
   lname :string;

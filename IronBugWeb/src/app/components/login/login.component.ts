@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   usuario!:FormGroup;
 
   datosUsuario: any={
-    id_profesor: 0,
+    id_admin: 0,
     id_usuario: 0,
     nick: "",
     fname:"" ,
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
   admin!:FormGroup;
 
   admin_:Admin|any = {
-    id_profesor: 0,
+    id_admin: 0,
     nick: "",
     fname:"" ,
     lname:"" ,

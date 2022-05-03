@@ -20,7 +20,7 @@ export class RegisterProfeComponent implements OnInit {
   isValidFormSubmitted = false;
 
   admin_:Admin = {
-    id_profesor: 0,
+    id_admin: 0,
     nick: "",
     fname:"" ,
     lname:"" ,
@@ -64,7 +64,7 @@ export class RegisterProfeComponent implements OnInit {
 
   //Funcion para conectar con el php
   registrarProfesor(){
-    this.serverProfesorService.insertarProfesor(this.admin_.id_profesor,this.admin_.nick, this.admin_.fname, this.admin_.lname, this.admin_.mail, this.admin_.centro, this.admin_.pssw, this.admin_.psswConf,this.admin_.avatar).subscribe(
+    this.serverProfesorService.insertarProfesor(this.admin_.id_admin,this.admin_.nick, this.admin_.fname, this.admin_.lname, this.admin_.mail, this.admin_.centro, this.admin_.pssw, this.admin_.psswConf,this.admin_.avatar).subscribe(
       datos  => this.profesores = datos
     );
  this.router.navigate(['login']);

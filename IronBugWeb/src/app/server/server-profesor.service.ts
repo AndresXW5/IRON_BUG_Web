@@ -33,9 +33,9 @@ export class ServerProfesorService {
   }
 
 
-  insertarProfesor(id_profesor: any, nick: any, fname: any, lname: any, mail: any, centro: any, pssw: any, psswConf: any, avatar: any){
+  insertarProfesor(id_admin: any, nick: any, fname: any, lname: any, mail: any, centro: any, pssw: any, psswConf: any, avatar: any){
     let admin_: Admin = {
-      id_profesor: id_profesor,
+      id_admin: id_admin,
       nick: nick,
       fname: fname,
       lname: lname,

@@ -29,7 +29,7 @@ export class ProfileProfeComponent implements OnInit {
 
   }
   admin: Admin = {
-    id_profesor: 0,
+    id_admin: 0,
     nick: '',
     fname: "",
     lname: "",
@@ -41,7 +41,7 @@ export class ProfileProfeComponent implements OnInit {
 
   }
   modificarProfesor: any = {
-    id_profesor: 0,
+    id_admin: 0,
     nick: '',
     fname: "",
     lname: "",
@@ -73,7 +73,7 @@ export class ProfileProfeComponent implements OnInit {
 
   ngOnInit(): void {
     this.admin = {
-      id_profesor: Number(this.route.snapshot.paramMap.get('id_profesor')),
+      id_admin: Number(this.route.snapshot.paramMap.get('id_admin')),
       fname: String(this.route.snapshot.paramMap.get('fname')),
       lname: String(this.route.snapshot.paramMap.get('lname')),
       nick: String(this.route.snapshot.paramMap.get('nick')),
@@ -131,7 +131,7 @@ export class ProfileProfeComponent implements OnInit {
       const reader = new FileReader()
       reader.onload = (e) => {
         const imageUrl = reader.result;
-        this.modificarProfesor.id_profesor = this.admin.id_profesor;
+        this.modificarProfesor.id_admin = this.admin.id_admin;
         let old = this.modificarProfesor.avatar;
         this.modificarProfesor = this.admin;
         this.modificarProfesor.avatar = imageUrl;

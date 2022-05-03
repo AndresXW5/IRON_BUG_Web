@@ -28,7 +28,7 @@ constructor(router: Router, route: ActivatedRoute, serverProfesorService: Server
 }
 admin_!: FormGroup;
 admin:Admin = {
-  id_profesor: 0,
+  id_admin: 0,
   nick: '',
   fname: "",
   lname: "",
@@ -42,7 +42,7 @@ admin:Admin = {
 
 ngOnInit(): void {
   this.admin = {
-    id_profesor: Number(this.route.snapshot.paramMap.get('id_profesor')),
+    id_admin: Number(this.route.snapshot.paramMap.get('id_admin')),
     fname: String(this.route.snapshot.paramMap.get('fname')),
     lname: String(this.route.snapshot.paramMap.get('lname')),
     nick: String(this.route.snapshot.paramMap.get('nick')),
@@ -80,7 +80,7 @@ onSubmit() {
 
 modificarProfesor(){
   let admin: Admin = {
-    id_profesor: this.admin.id_profesor,
+    id_admin: this.admin.id_admin,
     nick: this.admin.nick,
     fname: this.admin.fname,
     lname: this.admin.lname,

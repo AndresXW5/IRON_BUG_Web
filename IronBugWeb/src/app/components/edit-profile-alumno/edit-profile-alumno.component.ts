@@ -40,7 +40,7 @@ constructor(router: Router, route: ActivatedRoute, serverAlumnoService: ServerAl
 
 ngOnInit(): void {
   this.usuario = {
-    id_usuario: Number(this.route.snapshot.paramMap.get('id_profesor')),
+    id_usuario: Number(this.route.snapshot.paramMap.get('id_admin')),
     fname: String(this.route.snapshot.paramMap.get('fname')),
     lname: String(this.route.snapshot.paramMap.get('lname')),
     nick: String(this.route.snapshot.paramMap.get('nick')),
