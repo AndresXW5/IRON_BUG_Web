@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Usuario, Ranking } from '../interfaces/interfaz';
+import { producto, Ranking } from './interfaces/interfaz';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +11,18 @@ export class ServerRankingService {
 
   constructor(private http: HttpClient) { }
 
-  listarRanking(ranking: Ranking) {
-    // console.log("Ranking en service: ", ranking);
-    return this.http.post(`${this.URL}ranking/listarRanking.php`,JSON.stringify(ranking));
+  listarProducto(producto: producto) {
+     console.log("Ranking en service: ", producto);
+    return this.http.post(`${this.URL}productos/productos.php`,JSON.stringify(producto));
   }
 
-  listarTodoRanking(ranking: Ranking) {
-    return this.http.post(`${this.URL}ranking/listarTodosRanking.php`,JSON.stringify(ranking));
+  listarRanking(Ranking: Ranking) {
+    // console.log("Ranking en service: ", ranking);
+    return this.http.post(`${this.URL}ranking/listarRanking.php`,JSON.stringify(Ranking));
+  }
+
+  listarTodoRanking(Ranking: Ranking) {
+    return this.http.post(`${this.URL}ranking/listarTodosRanking.php`,JSON.stringify(Ranking));
   }
 
   // listarTodoRanking(ranking: Ranking){

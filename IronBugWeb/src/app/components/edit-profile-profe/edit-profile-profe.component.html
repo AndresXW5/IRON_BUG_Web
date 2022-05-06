@@ -3,7 +3,7 @@
     <div class="main-body">
       <div class="row gutters">
         <div class="col-md-12 ">
-          <form [formGroup]="profes" (ngSubmit)="onSubmit()">
+          <form [formGroup]="admin_" (ngSubmit)="onSubmit()">
           <div class="card">
             <div class="card-body">
               <div class="row">
@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-7 text-secondary">
                   <input type="fname" id="fname" class="form-control form-control-lg"
-                    formControlName="fname" [(ngModel)]="profe.fname" name="profe.fname">
+                    formControlName="fname" [(ngModel)]="admin.fname" name="admin.fname">
                 </div>
               </div>
               <hr>
@@ -21,8 +21,8 @@
                   <h6 class="mt-3">Apellido</h6>
                 </div>
                 <div class="col-7 text-secondary">
-                  <input type="lname" id="lname" class="form-control form-control-lg" placeholder="{{ profe.lname }}"
-                  formControlName="lname" [(ngModel)]="profe.lname">
+                  <input type="lname" id="lname" class="form-control form-control-lg" placeholder="{{ admin.lname }}"
+                  formControlName="lname" [(ngModel)]="admin.lname">
                 </div>
               </div>
               <hr>
@@ -31,8 +31,8 @@
                   <h6 class="mt-3">Correo</h6>
                 </div>
                 <div class="col-7 text-secondary">
-                  <input type="mail" id="mail" class="form-control form-control-lg" placeholder="{{ profe.mail }}"
-                  formControlName="mail" [(ngModel)]="profe.mail">
+                  <input type="mail" id="mail" class="form-control form-control-lg" placeholder="{{ admin.mail }}"
+                  formControlName="mail" [(ngModel)]="admin.mail">
                 </div>
               </div>
               <hr>
@@ -41,8 +41,8 @@
                   <h6 class="mt-3">Centro</h6>
                 </div>
                 <div class="col-7 text-secondary">
-                  <input type="centro" id="centro" class="form-control form-control-lg" placeholder="{{ profe.centro }}"
-                  formControlName="centro" [(ngModel)]="profe.centro">
+                  <input type="centro" id="centro" class="form-control form-control-lg" placeholder="{{ admin.centro }}"
+                  formControlName="centro" [(ngModel)]="admin.centro">
                 </div>
               </div>
               <hr>
@@ -50,13 +50,13 @@
               <div class="col-6">
                 <button type="submit" (click)="modificarProfesor()" class="btn btn-outline-info ">Aplicar cambios</button>
               </div>
-              <div class="col-6">
-                <button (click)="volver()" class="btn btn-outline-danger ">Cancelar</button>
-              </div>
             </div>
           </div>
           </div>
         </form>
+        <div class="col-6">
+          <button (click)="volver()" class="btn btn-outline-danger ">Cancelar</button>
+        </div>
         </div>
       </div>
     </div>

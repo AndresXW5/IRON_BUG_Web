@@ -8,7 +8,7 @@
   $conexion = conexion(); // CREA LA CONEXION
 
   // REALIZA LA QUERY A LA DB
-  mysqli_query($conexion, "DELETE FROM usuarios WHERE id_alumno='$_GET[id_alumno]'");
+  mysqli_query($conexion, "DELETE FROM usuarios WHERE id_usuario='$_GET[id_usuario]'");
 
 
   class Result {}

@@ -1,5 +1,5 @@
-export interface Profe {
-  id_profesor :number;
+export interface Admin {
+  id_admin :number;
   nick :string;
   fname :string;
   lname :string;
@@ -8,12 +8,10 @@ export interface Profe {
   pssw :string;
   psswConf :string;
   avatar : string;
-
-
   }
 
-export interface Alumno {
-  id_alumno :number;
+export interface Usuario {
+  id_usuario :number;
   nick :string;
   fname :string;
   lname :string;
@@ -27,7 +25,20 @@ export interface Alumno {
 
   export interface Ranking {
     id_r: number;
+    id_usuario?: number;
     name_r: string;
-    cont_r: number;
+    codigo: number;
+  }
 
+  export interface Entrega {
+    id: number;
+    nombre: string;
+    puntos: number;
+  }
+
+
+  export interface producto {
+    nombre: string,
+    descripcion: string,
+    precio: number
   }

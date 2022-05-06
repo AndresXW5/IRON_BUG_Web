@@ -18,8 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
 // import { ModificarComponent } from './components/modificar/modificar.component';
 import { EditProfileProfeComponent } from './components/edit-profile-profe/edit-profile-profe.component';
 import { EditProfileAlumnoComponent } from './components/edit-profile-alumno/edit-profile-alumno.component';
-import { ProductosComponent } from './productos/productos.component';
-import { ProductosListComponent } from './productos-list/productos-list.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +33,6 @@ import { ProductosListComponent } from './productos-list/productos-list.componen
     // ModificarComponent,
     EditProfileProfeComponent,
     EditProfileAlumnoComponent,
-    ProductosComponent,
-    ProductosListComponent
 
 
     ],

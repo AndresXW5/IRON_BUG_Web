@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faNotesMedical } from '@fortawesome/free-solid-svg-icons';
-import { Profe } from 'src/app/interfaces/interfaz';
+import { Admin } from 'src/app/interfaces/interfaz';
 import { ServerProfesorService } from 'src/app/server/server-profesor.service';
 import Swal from 'sweetalert2';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,7 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./edit-profile-profe.component.css']
 })
 export class EditProfileProfeComponent implements OnInit {
-// public profes:Profe[] = [] ;
 router: Router;
 route: ActivatedRoute;
 
@@ -27,9 +26,9 @@ constructor(router: Router, route: ActivatedRoute, serverProfesorService: Server
   this.serverProfesorService = serverProfesorService;
 
 }
-profes!: FormGroup;
-profe:Profe = {
-  id_profesor: 0,
+admin_!: FormGroup;
+admin:Admin = {
+  id_admin: 0,
   nick: '',
   fname: "",
   lname: "",
@@ -42,8 +41,8 @@ profe:Profe = {
 }
 
 ngOnInit(): void {
-  this.profe = {
-    id_profesor: Number(this.route.snapshot.paramMap.get('id_profesor')),
+  this.admin = {
+    id_admin: Number(this.route.snapshot.paramMap.get('id_admin')),
     fname: String(this.route.snapshot.paramMap.get('fname')),
     lname: String(this.route.snapshot.paramMap.get('lname')),
     nick: String(this.route.snapshot.paramMap.get('nick')),
@@ -55,7 +54,7 @@ ngOnInit(): void {
 
   };
 
-  this.profes = this.formBuilder.group({
+  this.admin_ = this.formBuilder.group({
  fname: [''],
  lname: [''],
  nick: [''],
@@ -66,7 +65,7 @@ ngOnInit(): void {
 //   firstName: [)
 // });
 
-this.profes = new FormGroup({
+this.admin_ = new FormGroup({
   fname: new FormControl('',[Validators.required]),
   lname: new FormControl('',[Validators.required]),
   nick: new FormControl('',[Validators.required]),
@@ -80,18 +79,18 @@ onSubmit() {
 }
 
 modificarProfesor(){
-  let profe: Profe = {
-    id_profesor: this.profe.id_profesor,
-    nick: this.profe.nick,
-    fname: this.profe.fname,
-    lname: this.profe.lname,
-    centro: this.profe.centro,
-    mail: this.profe.mail,
+  let admin: Admin = {
+    id_admin: this.admin.id_admin,
+    nick: this.admin.nick,
+    fname: this.admin.fname,
+    lname: this.admin.lname,
+    centro: this.admin.centro,
+    mail: this.admin.mail,
     pssw: '',
     psswConf: '',
     avatar: ''
   }
-  this.serverProfesorService.modificarProfesor(profe).subscribe(
+  this.serverProfesorService.modificarProfesor(admin).subscribe(
     (datos: string) => {
       if (datos == 'OK') {
         console.log('ok');
@@ -100,9 +99,8 @@ modificarProfesor(){
       }
     }
   );
-  this.router.navigate(['pprofe', this.profe]);
+  this.router.navigate(['pprofe', this.admin]);
 }
-// get data() { return this.profe.controls; }
 
 editar(){
   this.router.navigate(['editar-profe']);
@@ -112,10 +110,10 @@ editar(){
 
   volver(){
 
-    this.router.navigate(['pprofe',this.profe]);
+    this.router.navigate(['pprofe',this.admin]);
   }
   addRank(){
-    
+
   }
 
 }

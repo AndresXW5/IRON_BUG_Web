@@ -2,7 +2,7 @@ import { ServerRankingService } from './../../server/server-ranking.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Alumno, Profe, Ranking } from 'src/app/interfaces/interfaz';
+import { Usuario, Admin, Ranking } from 'src/app/interfaces/interfaz';
 import { ServiceService } from 'src/app/server/service.service';
 import { ServerProfesorService } from 'src/app/server/server-profesor.service';
 import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
@@ -17,11 +17,11 @@ export class LoginComponent implements OnInit {
   ServiceService: any;
   route: ActivatedRoute;
   alumnosArray = [];
-  alumno!:FormGroup;
+  usuario!:FormGroup;
 
   datosUsuario: any={
-    id_profesor: 0,
-    id_alumno: 0,
+    id_admin: 0,
+    id_usuario: 0,
     nick: "",
     fname:"" ,
     lname:"" ,
@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
     pssw:"",
     psswConf:"",
   }
-  alumnos:Alumno|any = {
-    id_alumno: 0,
+  usuarios: Usuario|any = {
+    id_usuario: 0,
     nick: "",
     fname:"" ,
     lname:"" ,
@@ -48,10 +48,10 @@ export class LoginComponent implements OnInit {
   alumnoParam: any;
 
   profesArray = [];
-  profe!:FormGroup;
+  admin!:FormGroup;
 
-  profes:Profe|any = {
-    id_profesor: 0,
+  admin_:Admin|any = {
+    id_admin: 0,
     nick: "",
     fname:"" ,
     lname:"" ,
@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
   ranking: Ranking = {
     id_r: 0,
     name_r: "",
-    cont_r: 0
+    codigo: 0
   }
 
 
@@ -81,49 +81,36 @@ export class LoginComponent implements OnInit {
   };
 
   ngOnInit() : void {
-    this.profe =  this.formBuilder.group({
+    this.admin =  this.formBuilder.group({
       mail: ['', [Validators.required, Validators.email]],
       pssw: ['', [Validators.required,Validators.minLength(8)]],
     });
-    this.alumno =  this.formBuilder.group({
+    this.usuario =  this.formBuilder.group({
       mail: ['', [Validators.required, Validators.email]],
       pssw: ['', [Validators.required,Validators.minLength(8)]],
     });
     console.log(this.ServiceService);
 
-    this.ranking = {
-      id_r: Number(this.route.snapshot.paramMap.get('id_r')),
-      name_r: String(this.route.snapshot.paramMap.get('name_r')),
-      cont_r: Number(this.route.snapshot.paramMap.get('cont_r'))
-    }
+    // this.ranking = {
+    //   id_r: Number(this.route.snapshot.paramMap.get('id_r')),
+    //   name_r: String(this.route.snapshot.paramMap.get('name_r')),
+    //   cont_r: Number(this.route.snapshot.paramMap.get('cont_r'))
+    // }
 
   }
 
   get data() {
-      if(this.profe){
-      return this.profe.controls;
+      if(this.admin){
+      return this.admin.controls;
     }else{
-      return this.alumno.controls;
+      return this.usuario.controls;
     }
   }
 
-
-
-  //  onSubmit() {
-  //   if(this.profe){
-  //     this.listarProfesor();
-  //   }else{
-  //     this.listarAlumno();
-  //     }
-  //   }
-
   //Funcion para conectar con el php
   listarProfesor(){
-
-    this.profesorInicio.mail =  this.profes.mail;
-    this.profesorInicio.pssw = this.profes.pssw;
-
-
+    this.profesorInicio.mail =  this.admin_.mail;
+    this.profesorInicio.pssw = this.admin_.pssw;
 
     this.serverProfesorService.listarProfesor(this.profesorInicio).subscribe(
       datos  => {
@@ -141,12 +128,12 @@ export class LoginComponent implements OnInit {
       //     this.router.navigate(['palumno',datos]);
       //   }
       // );
-
   }
+
   listarAlumno(){
 
-    this.alumnoInicio.mail =  this.alumnos.mail;
-    this.alumnoInicio.pssw = this.alumnos.pssw;
+    this.alumnoInicio.mail =  this.usuarios.mail;
+    this.alumnoInicio.pssw = this.usuarios.pssw;
 
     this.serverAlumnoService.listarAlumno(this.alumnoInicio).subscribe(
       datos  => {

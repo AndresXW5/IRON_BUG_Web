@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Alumno } from '../interfaces/interfaz';
+import { Usuario, Ranking } from '../interfaces/interfaz';
 import { decimalDigest } from '@angular/compiler/src/i18n/digest';
 
 
@@ -17,21 +17,28 @@ export class ServerAlumnoService {
 
 
   listarAlumno(params: any) {
-    return this.http.post(`${this.URL}alumnos/listarAlumnos.php`,JSON.stringify(params));
+    return this.http.post(`${this.URL}usuarios/listarUser.php`,JSON.stringify(params));
   }
 
   // eliminarProfesor(nombreProfesor) {
-  //   return this.http.get(`${this.URL}eliminarProfesor.php?nombreProfesor=${nombreProfesor}`);
+  //   return this.http.get(`${this.URL}eliminarAdmin.php?nombreProfesor=${nombreProfesor}`);
   // }
-  modificarAlumno(alumno:Alumno) {
-   console.log(alumno);
+  modificarAlumno(usuario: Usuario) {
+   console.log(usuario);
 
-    return this.http.post(`${this.URL}alumnos/modificarAlumnos.php`,JSON.stringify(alumno));
+    return this.http.post(`${this.URL}usuarios/modificarUser.php`,JSON.stringify(usuario));
   }
 
-  insertarAlumnos(id_alumno: any, nick: any, fname: any, lname: any, mail: any, fecha: any, pssw: any, psswConf: any, avatar: any){
-    let alumnos: Alumno = {
-      id_alumno: id_alumno,
+  unirseRanking(ranking:Ranking){
+
+    return this.http.post(`${this.URL}ranking/unirseRanking.php`,JSON.stringify(ranking));
+  }
+
+
+  //Registrar nuevo usuario
+  insertarAlumnos(id_usuario: any, nick: any, fname: any, lname: any, mail: any, fecha: any, pssw: any, psswConf: any, avatar: any){
+    let usuarios: Usuario = {
+      id_usuario: id_usuario,
       nick: nick,
       fname: fname,
       lname: lname,
@@ -41,11 +48,11 @@ export class ServerAlumnoService {
       psswConf: psswConf,
       avatar: avatar
     }
-    return this.http.post(`${this.URL}alumnos/insertarAlumnos.php`,JSON.stringify(alumnos));
+    return this.http.post(`${this.URL}usuarios/insertarUser.php`,JSON.stringify(usuarios));
   }
-  editarImagen(alumno: any){
 
-    return this.http.post(`${this.URL}alumnos/modificarAlumnos.php`,JSON.stringify(alumno));
+  editarImagen(usuario: any){
+    return this.http.post(`${this.URL}usuarios/modificarUser.php`,JSON.stringify(usuario));
   }
 
   // modificarProfesorEquipos(nombreProfesor, modoEquipos){

@@ -7,7 +7,7 @@
     header('Content-Type application/json; charset=utf-8');
 
     $json =file_get_contents('php://input');
-    $alumnoParam =json_decode($json);
+    $profesores =json_decode($json);
 
   global $datos;
 
@@ -22,9 +22,8 @@
   echo $json;
 
   // REALIZA LA QUERY A LA DB
- $registros = mysqli_query($conexion, "INSERT INTO `usuarios` (`id_alumno`, `nick`, `fname`, `lname`, `mail`, `fecha`, `pssw`, `psswConf`,`avatar`)  
- VALUES (NULL, '$alumnoParam->nick', '$alumnoParam->fname', '$alumnoParam->lname', '$alumnoParam->mail', '$alumnoParam->fecha', '$alumnoParam->pssw', '$alumnoParam->psswConf','$alumnoParam->avatar')");
-
+ $registros = mysqli_query($conexion, "INSERT INTO `admin` (`id_admin`, `nick`, `fname`, `lname`, `mail`, `centro`, `pssw`, `psswConf`,`avatar`)
+ VALUES (NULL, '$admin->nick', '$admin->fname', '$admin->lname', '$admin->mail', '$admin->centro', '$admin->pssw', '$admin->psswConf', '$admin->avatar')");
 
 
   echo "$registros";
@@ -38,4 +37,10 @@
 
   echo json_encode($resultado); // MUESTRA EL JSON GENERADO
 
+
+
+
 ?>
+
+
+

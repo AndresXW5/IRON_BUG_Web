@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>ajesty</title>
+  <title>Iron Bug</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <!-- Font Awesome icons (free version)-->
@@ -18,7 +18,7 @@
   <!-- Core theme CSS (includes Bootstrap)-->
 
 </head>
-<section class="vh-full gradient-custom bg-primary">
+<section class="vh-full gradient-custom bg-SUCCESS">
   <div class="container py-5 h-100  w">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -27,27 +27,24 @@
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-2 text-uppercase">REGISTRAR ALUMNO </h2>
+              <h2 class="fw-bold mb-2 text-uppercase">REGISTRAR USUARIO</h2>
               <hr size="7" class="rounded">
 
-              <form [formGroup]="alumno" (ngSubmit)="onSubmit()" class="p-3 mt-3">
+              <form [formGroup]="usuario" (ngSubmit)="onSubmit()" class="p-3 mt-3">
                 <div class="row">
                   <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="form-outline form-white mb-4 ">
                       <label class="form-label" for="nick">Apodo</label>
                       <input type="text" id="nick" class="form-control form-control-lg" placeholder="Apodo"
-                        formControlName="nick" [(ngModel)]="alumnos.nick">
+                        formControlName="nick" [(ngModel)]="usuarios.nick">
                     </div>
 
-                    <!-- <div *ngIf="nick.errors?.required">
-                      Se requiere un apodo
-                    </div>  -->
                   </div>
                   <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="fname">Nombre</label>
                       <input type="text" id="fname" class="form-control form-control-lg" placeholder="Nombre"
-                        formControlName="fname" [(ngModel)]="alumnos.fname">
+                        formControlName="fname" [(ngModel)]="usuarios.fname">
 
                     </div>
                   </div>
@@ -55,7 +52,7 @@
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="lname">Apellido</label>
                       <input type="text" id="lname" class="form-control form-control-lg" placeholder="Apellido"
-                        formControlName="lname" [(ngModel)]="alumnos.lname">
+                        formControlName="lname" [(ngModel)]="usuarios.lname">
 
                     </div>
                   </div>
@@ -63,7 +60,7 @@
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="fecha">Fecha</label>
                       <input type="date" id="fecha" class="form-control form-control-lg" placeholder="Fecha"
-                        formControlName="fecha" [(ngModel)]="alumnos.fecha">
+                        formControlName="fecha" [(ngModel)]="usuarios.fecha">
 
                     </div>
                   </div>
@@ -73,27 +70,28 @@
                       <div class="form-outline form-white mb-4">
                         <label class="form-label" for="mail">Email</label>
                         <input type="mail" id="mail" class="form-control form-control-lg" placeholder="ejemplo@mail.com"
-                          formControlName="mail" [(ngModel)]="alumnos.mail">
+                          formControlName="mail" [(ngModel)]="usuarios.mail">
 
                       </div>
                     </div>
+
                     <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="pssw">Contraseña</label>
                       <input type="password" id="pssw" class="form-control form-control-lg"
-                        placeholder="********" formControlName="pssw" [(ngModel)]="alumnos.pssw">
+                        placeholder="********" formControlName="pssw" [(ngModel)]="usuarios.pssw">
                     </div>
                   </div>
                   <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="psswConf">Confirmar Contraseña</label>
                       <input type="password" id="psswConf" class="form-control form-control-lg"
-                        placeholder="********" formControlName="psswConf" [(ngModel)]="alumnos.psswConf">
+                        placeholder="********" formControlName="psswConf" [(ngModel)]="usuarios.psswConf">
                     </div>
                   </div>
                 </div>
 
-                <button class="btn btn-outline-light btn-lg px-5" type="submit" [disabled]="!alumno.valid">Registrase</button>
+                <button class="btn btn-outline-light btn-lg px-5" type="submit" [disabled]="!usuario.valid">Registrase</button>
               </form>
             </div>
             <div>

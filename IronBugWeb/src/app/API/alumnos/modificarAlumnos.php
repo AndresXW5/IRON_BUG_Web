@@ -18,7 +18,7 @@
  
   //echo($params);
  
- $registros = mysqli_query($conexion, "UPDATE `alumnos` SET nick = '$params->nick', fname = '$params->fname', lname = '$params->lname', mail = '$params->mail', fecha = '$params->fecha', avatar = '$params->avatar' WHERE id_alumno = $params->id_alumno;");
+ $registros = mysqli_query($conexion, "UPDATE `usuarios` SET nick = '$params->nick', fname = '$params->fname', lname = '$params->lname', mail = '$params->mail', fecha = '$params->fecha', avatar = '$params->avatar' WHERE id_alumno = $params->id_alumno;");
 
 
 

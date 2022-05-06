@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Alumno } from 'src/app/interfaces/interfaz';
+import { Usuario } from 'src/app/interfaces/interfaz';
 import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -12,12 +12,11 @@ import { faNotesMedical } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./edit-profile-alumno.component.css']
 })
 export class EditProfileAlumnoComponent implements OnInit {
-// public profes:Profe[] = [] ;
 router: Router;
 route: ActivatedRoute;
 alums!: FormGroup;
-alumno:Alumno = {
-  id_alumno: 0,
+usuario: Usuario = {
+  id_usuario: 0,
   nick: '',
   fname: "",
   lname: "",
@@ -40,8 +39,8 @@ constructor(router: Router, route: ActivatedRoute, serverAlumnoService: ServerAl
 }
 
 ngOnInit(): void {
-  this.alumno = {
-    id_alumno: Number(this.route.snapshot.paramMap.get('id_profesor')),
+  this.usuario = {
+    id_usuario: Number(this.route.snapshot.paramMap.get('id_admin')),
     fname: String(this.route.snapshot.paramMap.get('fname')),
     lname: String(this.route.snapshot.paramMap.get('lname')),
     nick: String(this.route.snapshot.paramMap.get('nick')),
@@ -50,7 +49,7 @@ ngOnInit(): void {
     pssw: String(this.route.snapshot.paramMap.get('pssw')),
     psswConf: String(this.route.snapshot.paramMap.get('psswConf')),
     avatar: String(this.route.snapshot.paramMap.get('avatar'))
-    
+
 };
 
 this.alums = this.formBuilder.group({
@@ -75,18 +74,18 @@ onSubmit() {
 }
 
 modificarAlumno(){
-  let alumno: Alumno = {
-    id_alumno: this.alumno.id_alumno,
-    nick: this.alumno.nick,
-    fname: this.alumno.fname,
-    lname: this.alumno.lname,
-    fecha: this.alumno.fecha,
-    mail: this.alumno.mail,
+  let usuario: Usuario = {
+    id_usuario: this.usuario.id_usuario,
+    nick: this.usuario.nick,
+    fname: this.usuario.fname,
+    lname: this.usuario.lname,
+    fecha: this.usuario.fecha,
+    mail: this.usuario.mail,
     pssw: '',
     psswConf: '',
     avatar: ''
   }
-  this.serverAlumnoService.modificarAlumno(alumno).subscribe(
+  this.serverAlumnoService.modificarAlumno(usuario).subscribe(
     (datos: string) => {
       if (datos == 'OK') {
         console.log('ok');
@@ -95,7 +94,7 @@ modificarAlumno(){
       }
     }
   );
-  this.router.navigate(['palumno', this.alumno]);
+  this.router.navigate(['palumno', this.usuario]);
 }
 // get data() { return this.profe.controls; }
 editar(){
@@ -103,7 +102,7 @@ editar(){
 }
 
 volver(){
-  this.router.navigate(['palumno',this.alumno]);
+  this.router.navigate(['palumno',this.usuario]);
   }
 
 }

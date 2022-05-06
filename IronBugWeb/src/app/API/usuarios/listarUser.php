@@ -19,7 +19,7 @@
 
 
   // REALIZA LA QUERY A LA BD
-  $registros = mysqli_query($conexion, "SELECT * FROM usuarios WHERE mail='$alumnoParam->mail' AND pssw='$alumnoParam->pssw'");
+  $registros = mysqli_query($conexion, "SELECT * FROM alumnos WHERE mail='$alumnoParam->mail' AND pssw='$alumnoParam->pssw'");
 
 
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY

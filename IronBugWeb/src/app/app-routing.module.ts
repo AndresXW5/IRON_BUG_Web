@@ -9,6 +9,7 @@ import { ProfileProfeComponent } from './components/profile-profe/profile-profe.
 import { RankingsComponent } from './components/rankings/rankings.component';
 import { RankingAdminComponent } from './components/ranking-admin/ranking-admin.component';
 import { EditProfileAlumnoComponent } from './components/edit-profile-alumno/edit-profile-alumno.component';
+import { ProductosComponent } from './productos/productos.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
     { path: 'pprofe', component: ProfileProfeComponent, pathMatch: 'full'},
     { path: 'editar-profe', component: EditProfileProfeComponent, pathMatch: 'full'},
     { path: 'editar-alumno', component: EditProfileAlumnoComponent, pathMatch: 'full'},
+    { path: 'producto', component: ProductosComponent, pathMatch: 'full'},
 
   { path: '**', redirectTo: '/register' } //Dejar la ultima
   ];
