@@ -206,7 +206,7 @@ export class ProfileProfeComponent implements OnInit {
 
     const { value: name_r } = await Swal.fire({
 
-        title: 'Asigne un nombre al ranking',
+        title: 'Asigne un nombre al producto',
         input: 'text',
         text: ''
 

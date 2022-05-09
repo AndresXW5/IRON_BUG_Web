@@ -21,6 +21,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  productos(){
+    this.router.navigate(['productos']);
+  }
+
   fortest(){
     this.router.navigate(['testEliminar']);
   }

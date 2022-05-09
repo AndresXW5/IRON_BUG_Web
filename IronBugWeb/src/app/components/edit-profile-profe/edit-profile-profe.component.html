@@ -1,4 +1,4 @@
-<section class="vh-100 gradient-custom bg-primary">
+<section class="vh-100 gradient-custom bg-danger">
   <div class="container bg-light rounded-bottom ">
     <div class="main-body">
       <div class="row gutters">
@@ -36,16 +36,6 @@
                 </div>
               </div>
               <hr>
-              <!-- <div class="row">
-                <div class="col-3">
-                  <h6 class="mt-3">Centro</h6>
-                </div>
-                <div class="col-7 text-secondary">
-                  <input type="centro" id="centro" class="form-control form-control-lg" placeholder="{{ admin.centro }}"
-                  formControlName="centro" [(ngModel)]="admin.centro">
-                </div>
-              </div>
-              <hr> -->
               <div class="row">
               <div class="col-6">
                 <button type="submit" (click)="modificarProfesor()" class="btn btn-outline-info ">Aplicar cambios</button>
@@ -55,7 +45,7 @@
           </div>
         </form>
         <div class="col-6">
-          <button (click)="volver()" class="btn btn-outline-danger ">Cancelar</button>
+          <button (click)="volver()" class="btn btn-outline-danger" style="margin: 14px;">Cancelar</button>
         </div>
         </div>
       </div>
