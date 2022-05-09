@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
   register(){
+    this.router.navigate(['login']);
+  }
+
+  productos(){
     this.router.navigate(['producto']);
   }
 
