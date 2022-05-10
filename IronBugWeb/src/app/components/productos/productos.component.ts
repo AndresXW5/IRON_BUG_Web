@@ -1,7 +1,7 @@
 import { ServerProductosService } from './../../server/server-productos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Productos } from 'src/app/interfaces/interfaz';
+import { Productos, Usuario } from 'src/app/interfaces/interfaz';
 
 @Component({
   selector: 'app-productos',
@@ -19,6 +19,18 @@ export class ProductosComponent implements OnInit {
 
   }
 
+  usuario: Usuario = {
+    id_usuario: 0,
+    nick: '',
+    fname: "",
+    lname: "",
+    mail: "",
+    fecha: "",
+    pssw: "",
+    psswConf: "",
+    avatar: ""
+  }
+
   productos: Productos [] | any = {
     id: 0,
     nombre: "",
@@ -30,6 +42,17 @@ export class ProductosComponent implements OnInit {
   // productosArray: [] | any;
 
   ngOnInit(): void {
+    this.usuario = {
+      id_usuario: Number(this.route.snapshot.paramMap.get('id_usuario')),
+       fname: String(this.route.snapshot.paramMap.get('fname')),
+       lname: String(this.route.snapshot.paramMap.get('lname')),
+       nick: String(this.route.snapshot.paramMap.get('nick')),
+       mail: String(this.route.snapshot.paramMap.get('mail')),
+       fecha: String(this.route.snapshot.paramMap.get('fecha')),
+       pssw: String(this.route.snapshot.paramMap.get('pssw')),
+       psswConf: String(this.route.snapshot.paramMap.get('psswConf')),
+       avatar: String(this.route.snapshot.paramMap.get('avatar'))
+     };
 
     this.service.listarProducto(this.productos).subscribe(
       datos => {
@@ -45,7 +68,7 @@ export class ProductosComponent implements OnInit {
 
 
   carrito(){
-    this.router.navigate(['palumno']);
+    this.router.navigate(['palumno', this.usuario]);
   }
 
 }

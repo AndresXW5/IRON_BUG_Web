@@ -18,83 +18,104 @@
   <!-- Core theme CSS (includes Bootstrap)-->
 
 </head>
-<section class="vh-100 gradient-custom bg-danger">
-  <div class="container bg-light rounded-bottom ">
-    <div class="main-body">
+<body>
+  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="height: 65px; background-color: rgb(59, 59, 59);">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top">Iron <span style="color: red;">Bug</span></a>
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button> <!--bg-secondary -->
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="height: 65px; background-color: rgba(59, 59, 59, 0.707); border-radius: 7px;">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="carrito()">Productos</a></li>
+                <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" href="#about">Sobre Nosotros</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" href="#contact">Contactanos</a></li> -->
+                <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px"  >Iniciar Sesión / Registrarse</a></li> -->
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px"  >Sesion iniciada como <span style="color: red;">{{usuario.fname}} {{usuario.lname}}</span></a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="volver()">Cerrar Sesion</a></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <section class="vh-100 gradient-custom bg-danger" >
+    <div class="container bg-light rounded-bottom ">
+      <div class="main-body">
 
-      <div class="row gutters-sm">
-        <div class="col-md-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex flex-column align-items-center text-center">
-                <img *ngIf="usuario.avatar; else noimage" (click)="editarImagen()" src="{{ usuario.avatar }}"
-                alt="Admin" class="rounded-circle" width="150">
-                <ng-template #noimage>
-                  <img (click)="editarImagen()" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img *ngIf="usuario.avatar; else noimage" (click)="editarImagen()" src="{{ usuario.avatar }}"
                   alt="Admin" class="rounded-circle" width="150">
-                </ng-template>
-                <div class="mt-3">
-                  <h4>{{usuario.nick}}</h4>
-                  <button class="btn btn-outline-primary" (click)="volver()">Cerrar Sesión</button>
+                  <ng-template #noimage>
+                    <img (click)="editarImagen()" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                    alt="Admin" class="rounded-circle" width="150">
+                  </ng-template>
+                  <div class="mt-3">
+                    <h4>{{usuario.nick}}</h4>
+                    <button class="btn btn-outline-primary" (click)="volver()">Cerrar Sesión</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-        </div>
-        <div class="col-md-8 ">
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-3">
-                  <h6 class="mb-0">Nombre</h6>
+          </div>
+          <div class="col-md-8 ">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Nombre</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuario.fname}}
+                  </div>
                 </div>
-                <div class="col-sm-9 text-secondary">
-                  {{usuario.fname}}
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Apellido</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuario.lname}}
+                  </div>
                 </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <h6 class="mb-0">Apellido</h6>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Correo</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuario.mail}}
+                  </div>
                 </div>
-                <div class="col-sm-9 text-secondary">
-                  {{usuario.lname}}
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Fecha de nacimiento</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{usuario.fecha}}
+                  </div>
                 </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <h6 class="mb-0">Correo</h6>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Contraseña</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-12">
+                      <a class="btn btn-outline-info" (click)="modifyPassword()">Cambiar Contraseña</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-sm-9 text-secondary">
-                  {{usuario.mail}}
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <h6 class="mb-0">Fecha de nacimiento</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                  {{usuario.fecha}}
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <h6 class="mb-0">Contraseña</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
+                <hr>
+                <div class="row">
                   <div class="col-sm-12">
-                    <a class="btn btn-outline-info" (click)="modifyPassword()">Cambiar Contraseña</a>
+                    <a (click)="editar()"class="btn btn-outline-info">Editar</a>
                   </div>
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-12">
-                  <a (click)="editar()"class="btn btn-outline-info">Editar</a>
                 </div>
               </div>
             </div>
@@ -102,40 +123,518 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="container bg-light rounded mt-4 ">
-    <div class="main-body">
-      <div class="row gutters-sm">
-        <div class="col-md-12 mb-3">
-          <div class="card">
-            <div class="card-header">
-              <h4>Carrito de {{ usuario.fname }} {{ usuario.lname }}</h4>
-                <!-- <button type="button" (click)="unirseRanking()"  class="btn btn-primary float-right">UNIRSE RANKING</button> -->
-            </div>
-            <div class="card-body">
 
-              <ul class="list-group list-group-flush">
-                <!-- *ngFor="let data of rankingsArray" ↓↓↓ -->
-                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap ">
-                  <h6 class="mb-0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      class="feather feather-globe mr-2 icon-inline">
-                    </svg>
-                      <!-- {{data.name_r_a}} --> Productos / Carrito
-                  </h6>
-                  <div class="md-8">
-                    <button type="button" (click)="listar_ranking()" class="btn btn-primary float-right" style="margin-left: 20px;">VER</button>
-                    <button type="button" class="btn btn-success float-right" style="margin-left: 20px;">Cantidad</button>
-                    <button type="button" class="btn btn-danger float-right" style="margin-left: 20px;">Eliminar</button>
-                  </div>
-                </li>
-              </ul>
+    <div class="container bg-light rounded mt-4 ">
+      <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-12 mb-3">
+            <div class="card">
+
+                <h4>Visita nuestro merchandaising!!!</h4>
+
+                  <button type="button" (click)="carrito()"  class="btn btn-secondary float-right">CATALOGO</button>
+
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
+    <div class="container bg-light rounded mt-4 ">
+      <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-12 mb-3">
+            <div class="card">
+              <div class="card-header">
+                <h4>Carrito de {{ usuario.fname }} {{ usuario.lname }}</h4>
+                  <!-- <button type="button" (click)="unirseRanking()"  class="btn btn-primary float-right">UNIRSE RANKING</button> -->
+              </div>
+              <div class="card-body">
+
+                <ul class="list-group list-group-flush">
+                  <!-- *ngFor="let data of rankingsArray" ↓↓↓ -->
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap ">
+                    <h6 class="mb-0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-globe mr-2 icon-inline">
+                      </svg>
+                        <!-- {{data.name_r_a}} --> Productos / Carrito
+                    </h6>
+                    <div class="md-8">
+                      <button type="button" (click)="listar_ranking()" class="btn btn-primary float-right" style="margin-left: 20px;">VER</button>
+                      <button type="button" class="btn btn-success float-right" style="margin-left: 20px;">Cantidad</button>
+                      <button type="button" class="btn btn-danger float-right" style="margin-left: 20px;">Eliminar</button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
 </html>
+
+
+
+<style> /*    El estilo va aqui temporalmente, no lo recoje de forma normal    */
+    /*  Helper Styles */
+
+
+  a {
+      text-decoration: none;
+  }
+
+  /* Card Styles */
+
+  .card-sl {
+      border-radius: 8px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .card-image img {
+      max-height: 100%;
+      max-width: 100%;
+      border-radius: 8px 8px 0px 0;
+  }
+
+  .card-action {
+      position: relative;
+      float: right;
+      margin-top: -25px;
+      margin-right: 20px;
+      z-index: 2;
+      color: #E26D5C;
+      background: #fff;
+      border-radius: 100%;
+      padding: 15px;
+      font-size: 15px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .card-action:hover {
+      color: #fff;
+      background: #E26D5C;
+      -webkit-animation: pulse 1.5s infinite;
+  }
+
+  .card-heading {
+      font-size: 18px;
+      font-weight: bold;
+      background: #fff;
+      padding: 10px 15px;
+  }
+
+  .card-text {
+      padding: 10px 15px;
+      background: #fff;
+      font-size: 14px;
+      color: #636262;
+  }
+
+  .card-button {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      width: 100%;
+      background-color: #1F487E;
+      color: #fff;
+      border-radius: 0 0 8px 8px;
+  }
+
+  .card-button:hover {
+      text-decoration: none;
+      background-color: #1D3461;
+      color: #fff;
+
+  }
+
+
+  @-webkit-keyframes pulse {
+      0% {
+          -moz-transform: scale(0.9);
+          -ms-transform: scale(0.9);
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+      }
+
+      70% {
+          -moz-transform: scale(1);
+          -ms-transform: scale(1);
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+      }
+
+      100% {
+          -moz-transform: scale(0.9);
+          -ms-transform: scale(0.9);
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+          box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+      }
+  }
+
+
+  .navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .navbar > .container,
+  .navbar > .container-fluid,
+  .navbar > .container-sm,
+  .navbar > .container-md,
+  .navbar > .container-lg,
+  .navbar > .container-xl,
+  .navbar > .container-xxl {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @media (min-width: 992px) {
+    .navbar-expand-lg {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    .navbar-expand-lg .navbar-nav {
+      flex-direction: row;
+    }
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+      position: absolute;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    .navbar-expand-lg .navbar-nav-scroll {
+      overflow: visible;
+    }
+    .navbar-expand-lg .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    .navbar-expand-lg .navbar-toggler {
+      display: none;
+    }
+    .navbar-expand-lg .offcanvas-header {
+      display: none;
+    }
+    .navbar-expand-lg .offcanvas {
+      position: inherit;
+      bottom: 0;
+      z-index: 1000;
+      flex-grow: 1;
+      visibility: visible !important;
+      background-color: transparent;
+      border-right: 0;
+      border-left: 0;
+      transition: none;
+      transform: none;
+    }.navbar-expand-lg .offcanvas-top,
+    .navbar-expand-lg .offcanvas-bottom {
+        height: auto;
+        border-top: 0;
+        border-bottom: 0;
+      }
+      .navbar-expand-lg .offcanvas-body {
+        display: flex;
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+      }
+    }
+    @media (min-width: 1200px) {
+      .navbar-expand-xl {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
+      .navbar-expand-xl .navbar-nav {
+        flex-direction: row;
+      }
+      .navbar-expand-xl .navbar-nav .dropdown-menu {
+        position: absolute;
+      }
+      .navbar-expand-xl .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+      }
+      .navbar-expand-xl .navbar-nav-scroll {
+        overflow: visible;
+      }
+      .navbar-expand-xl .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+      }
+      .navbar-expand-xl .navbar-toggler {
+        display: none;
+      }
+      .navbar-expand-xl .offcanvas-header {
+        display: none;
+      }
+      .navbar-expand-xl .offcanvas {
+        position: inherit;
+        bottom: 0;
+        z-index: 1000;
+        flex-grow: 1;
+        visibility: visible !important;
+        background-color: transparent;
+        border-right: 0;
+        border-left: 0;
+        transition: none;
+        transform: none;
+      }
+      .navbar-expand-xl .offcanvas-top,
+    .navbar-expand-xl .offcanvas-bottom {
+        height: auto;
+        border-top: 0;
+        border-bottom: 0;
+      }
+      .navbar-expand-xl .offcanvas-body {
+        display: flex;
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+      }
+    }
+    @media (min-width: 1400px) {
+      .navbar-expand-xxl {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
+      .navbar-expand-xxl .navbar-nav {
+        flex-direction: row;
+      }
+      .navbar-expand-xxl .navbar-nav .dropdown-menu {
+        position: absolute;
+      }
+      .navbar-expand-xxl .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+      }
+      .navbar-expand-xxl .navbar-nav-scroll {
+        overflow: visible;
+      }
+      .navbar-expand-xxl .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+      }
+      .navbar-expand-xxl .navbar-toggler {
+        display: none;
+      }
+      .navbar-expand-xxl .offcanvas-header {
+        display: none;
+      }
+      .navbar-expand-xxl .offcanvas {
+        position: inherit;
+        bottom: 0;
+        z-index: 1000;
+        flex-grow: 1;
+        visibility: visible !important;
+        background-color: transparent;
+        border-right: 0;
+        border-left: 0;
+        transition: none;
+        transform: none;
+      }
+      .navbar-expand-xxl .offcanvas-top,
+    .navbar-expand-xxl .offcanvas-bottom {
+        height: auto;
+        border-top: 0;
+        border-bottom: 0;
+      }
+      .navbar-expand-xxl .offcanvas-body {
+        display: flex;
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+      }
+    }
+    .navbar-expand {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    .navbar-expand .navbar-nav {
+      flex-direction: row;
+    }
+    .navbar-expand .navbar-nav .dropdown-menu {
+      position: absolute;
+    }
+    .navbar-expand .navbar-nav .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    .navbar-expand .navbar-nav-scroll {
+      overflow: visible;
+    }
+    .navbar-expand .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    .navbar-expand .navbar-toggler {
+      display: none;
+    }
+    .navbar-expand .offcanvas-header {
+      display: none;
+    }
+    .navbar-expand .offcanvas {
+      position: inherit;
+      bottom: 0;
+      z-index: 1000;
+      flex-grow: 1;
+      visibility: visible !important;
+      background-color: transparent;
+      border-right: 0;
+      border-left: 0;
+      transition: none;
+      transform: none;
+    }
+    .navbar-expand .offcanvas-top,
+    .navbar-expand .offcanvas-bottom {
+      height: auto;
+      border-top: 0;
+      border-bottom: 0;
+    }
+    .navbar-expand .offcanvas-body {
+      display: flex;
+      flex-grow: 0;
+      padding: 0;
+      overflow-y: visible;
+    }
+
+    .navbar-light .navbar-brand {
+      color: rgba(0, 0, 0, 0.9);
+    }
+    .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+      color: rgba(0, 0, 0, 0.9);
+    }
+    .navbar-light .navbar-nav .nav-link {
+      color: rgba(0, 0, 0, 0.55);
+    }
+    .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .navbar-light .navbar-nav .nav-link.disabled {
+      color: rgba(0, 0, 0, 0.3);
+    }
+    .navbar-light .navbar-nav .show > .nav-link,
+    .navbar-light .navbar-nav .nav-link.active {
+      color: rgba(0, 0, 0, 0.9);
+    }
+    .navbar-light .navbar-toggler {
+      color: rgba(0, 0, 0, 0.55);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+    .navbar-light .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .navbar-light .navbar-text {
+      color: rgba(0, 0, 0, 0.55);
+    }
+    .navbar-light .navbar-text a,
+    .navbar-light .navbar-text a:hover,
+    .navbar-light .navbar-text a:focus {
+      color: rgba(0, 0, 0, 0.9);
+    }
+
+    .navbar-dark .navbar-brand {
+      color: #fff;
+    }
+    .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+      color: #fff;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.55);
+    }
+    .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .navbar-dark .navbar-nav .nav-link.disabled {
+      color: rgba(255, 255, 255, 0.25);
+    }
+    .navbar-dark .navbar-nav .show > .nav-link,
+    .navbar-dark .navbar-nav .nav-link.active {
+      color: #fff;
+    }
+    .navbar-dark .navbar-toggler {
+      color: rgba(255, 255, 255, 0.55);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .navbar-dark .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .navbar-dark .navbar-text {
+      color: rgba(255, 255, 255, 0.55);
+    }
+    .navbar-dark .navbar-text a,
+    .navbar-dark .navbar-text a:hover,
+    .navbar-dark .navbar-text a:focus {
+      color: #fff;
+    }
+    #mainNav {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-weight: 700;
+    }
+    #mainNav .navbar-brand {
+      color: #fff;
+    }
+    #mainNav .navbar-nav {
+      margin-top: 1rem;
+    }
+    #mainNav .navbar-nav li.nav-item a.nav-link {
+      color: #fff;
+    }
+    #mainNav .navbar-nav li.nav-item a.nav-link:hover {
+      color: #1abc9c;
+    }
+    #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
+      color: #fff;
+    }
+    #mainNav .navbar-nav li.nav-item a.nav-link.active {
+      color: #1abc9c;
+    }
+    #mainNav .navbar-toggler {
+      font-size: 80%;
+      padding: 0.8rem;
+    }
+
+    @media (min-width: 992px) {
+      #mainNav {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        transition: padding-top 0.3s, padding-bottom 0.3s;
+      }
+      #mainNav .navbar-brand {
+        font-size: 1.75em;
+        transition: font-size 0.3s;
+      }
+      #mainNav .navbar-nav {
+        margin-top: 0;
+      }
+      #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+        color: #fff;
+        background: #1abc9c;
+      }
+      #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+        color: #fff;
+        background: #1abc9c;
+      }
+
+      #mainNav.navbar-shrink {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      #mainNav.navbar-shrink .navbar-brand {
+        font-size: 1.5em;
+      }
+    }
+</style>

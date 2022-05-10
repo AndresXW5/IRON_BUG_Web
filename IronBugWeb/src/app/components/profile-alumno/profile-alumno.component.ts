@@ -108,6 +108,9 @@ export class ProfileAlumnoComponent implements OnInit {
         localStorage.clear();
         this.router.navigate(['']);
       }
+      carrito(){
+        this.router.navigate(['productos', this.usuario]);
+      }
       _ranking(){
         this.router.navigate(['ranking']);
       }
