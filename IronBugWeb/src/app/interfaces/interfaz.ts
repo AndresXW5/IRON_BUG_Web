@@ -42,5 +42,5 @@ export interface Usuario {
     nombre: string,
     precio: number,
     descripcion: string,
-    // foto
+    foto: string
   }

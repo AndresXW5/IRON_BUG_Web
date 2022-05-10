@@ -23,7 +23,8 @@ export class ProductosComponent implements OnInit {
     id: 0,
     nombre: "",
     descripcion: "",
-    precio: 0
+    precio: 0,
+
   }
 
   // productosArray: [] | any;
@@ -38,9 +39,14 @@ export class ProductosComponent implements OnInit {
       }
     );
 
+
   }
 
 
+
+  carrito(){
+    this.router.navigate(['palumno']);
+  }
 
 }
 
