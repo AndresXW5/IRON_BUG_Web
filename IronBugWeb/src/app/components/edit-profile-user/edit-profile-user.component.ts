@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/interfaz';
-import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
+import { ServerUserService } from 'src/app/server/server-user.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { faNotesMedical } from '@fortawesome/free-solid-svg-icons';
@@ -27,14 +27,14 @@ usuario: Usuario = {
   avatar: ""
 
 }
-serverAlumnoService: any;
+ServerUserService: any;
 alumnos: any;
 
-constructor(router: Router, route: ActivatedRoute, serverAlumnoService: ServerAlumnoService, private  formBuilder: FormBuilder) {
+constructor(router: Router, route: ActivatedRoute, ServerUserService: ServerUserService, private  formBuilder: FormBuilder) {
 
   this.route = route;
   this.router = router;
-  this.serverAlumnoService = serverAlumnoService;
+  this.ServerUserService = ServerUserService;
 
 }
 
@@ -85,7 +85,7 @@ modificarAlumno(){
     psswConf: '',
     avatar: ''
   }
-  this.serverAlumnoService.modificarAlumno(usuario).subscribe(
+  this.ServerUserService.modificarAlumno(usuario).subscribe(
     (datos: string) => {
       if (datos == 'OK') {
         console.log('ok');

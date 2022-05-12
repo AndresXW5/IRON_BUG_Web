@@ -1,12 +1,10 @@
-
-
 import { Routing } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { RegisterAlumnoComponent } from './components/register-alumno/register-alumno.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { RegisterProfeComponent } from './components/register-profe/register-profe.component';
 import { ProfileUserComponent } from './components/profile-user/profile-alumno.component';
 import { ProfileProfeComponent } from './components/profile-profe/profile-profe.component';
@@ -24,7 +22,7 @@ import { ProductosComponent } from './components/productos/productos.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    RegisterAlumnoComponent,
+    RegisterUserComponent,
     RegisterProfeComponent,
     LoginComponent,
     ProfileProfeComponent,

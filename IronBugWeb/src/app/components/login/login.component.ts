@@ -5,7 +5,7 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Usuario, Admin, Ranking } from 'src/app/interfaces/interfaz';
 import { ServiceService } from 'src/app/server/service.service';
 import { ServerProfesorService } from 'src/app/server/server-profesor.service';
-import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
+import { ServerUserService } from 'src/app/server/server-user.service';
 
 
 @Component({
@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  constructor(private formBuilder: FormBuilder, private router: Router, route: ActivatedRoute, ServiceService: ServiceService,private serverProfesorService: ServerProfesorService, private serverAlumnoService: ServerAlumnoService, private serverRankingService: ServerRankingService){
+  constructor(private formBuilder: FormBuilder, private router: Router, route: ActivatedRoute, ServiceService: ServiceService,private serverProfesorService: ServerProfesorService, private ServerUserService: ServerUserService, private serverRankingService: ServerRankingService){
     this.formBuilder = formBuilder;
     this.ServiceService = ServiceService;
     this.route = route;
@@ -135,7 +135,7 @@ export class LoginComponent implements OnInit {
     this.alumnoInicio.mail =  this.usuarios.mail;
     this.alumnoInicio.pssw = this.usuarios.pssw;
 
-    this.serverAlumnoService.listarAlumno(this.alumnoInicio).subscribe(
+    this.ServerUserService.listarAlumno(this.alumnoInicio).subscribe(
       datos  => {
         this.router.navigate(['palumno', datos]);
       }

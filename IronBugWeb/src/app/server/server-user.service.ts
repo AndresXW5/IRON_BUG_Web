@@ -7,7 +7,7 @@ import { decimalDigest } from '@angular/compiler/src/i18n/digest';
 @Injectable({
   providedIn: 'root'
 })
-export class ServerAlumnoService {
+export class ServerUserService {
 
 
   URL = 'http://localhost:8080/';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
+import { ServerUserService } from 'src/app/server/server-user.service';
 import { ServerRankingService } from '../../server/server-ranking.service';
 import { Usuario, Ranking } from 'src/app/interfaces/interfaz';
 import Swal from 'sweetalert2';
@@ -18,7 +18,7 @@ export class ProfileUserComponent implements OnInit {
   rankingTodo: any;
 
 
-  constructor(router: Router, route: ActivatedRoute, private service: ServerAlumnoService, private serverRankingService: ServerRankingService) {
+  constructor(router: Router, route: ActivatedRoute, private service: ServerUserService, private serverRankingService: ServerRankingService) {
 
     this.route = route;
     this.router = router;

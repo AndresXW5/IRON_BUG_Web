@@ -4,15 +4,15 @@ import { Usuario} from 'src/app/interfaces/interfaz';
 import { ServiceService } from 'src/app/server/service.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
+import { ServerUserService } from 'src/app/server/server-user.service';
 import { PasswordValidator } from 'src/app/validator/password.validator';
 
 @Component({
-  selector: 'app-register-alumno',
-  templateUrl: './register-alumno.component.html',
-  styleUrls: ['./register-alumno.component.css']
+  selector: 'app-register-user',
+  templateUrl: './register-user.component.html',
+  styleUrls: ['./register-user.component.css']
 })
-export class RegisterAlumnoComponent implements OnInit {
+export class RegisterUserComponent implements OnInit {
   alumnosArray = [];
   usuario!:FormGroup;
   submitted = false;
@@ -33,7 +33,7 @@ export class RegisterAlumnoComponent implements OnInit {
 
   usuarioParam: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, ServiceService: ServiceService, private serverAlumnoService: ServerAlumnoService, private http: HttpClient){
+  constructor(private formBuilder: FormBuilder, private router: Router, ServiceService: ServiceService, private ServerUserService: ServerUserService, private http: HttpClient){
     this.formBuilder = formBuilder;
     this.ServiceService = ServiceService;
 
@@ -61,7 +61,7 @@ export class RegisterAlumnoComponent implements OnInit {
 
   //Funcion para conectar con el php
   registrarAlumno(){
-    this.serverAlumnoService.insertarAlumnos(this.usuarios.id_usuario,this.usuarios.nick, this.usuarios.fname, this.usuarios.lname, this.usuarios.mail, this.usuarios.fecha, this.usuarios.pssw, this.usuarios.psswConf, this.usuarios.avatar).subscribe(
+    this.ServerUserService.insertarAlumnos(this.usuarios.id_usuario,this.usuarios.nick, this.usuarios.fname, this.usuarios.lname, this.usuarios.mail, this.usuarios.fecha, this.usuarios.pssw, this.usuarios.psswConf, this.usuarios.avatar).subscribe(
       datos  => this.usuarioParam = datos
       );
     this.router.navigate(['login']);
