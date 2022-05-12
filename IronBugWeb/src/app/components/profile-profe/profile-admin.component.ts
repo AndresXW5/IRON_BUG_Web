@@ -7,11 +7,11 @@ import Swal from 'sweetalert2';
 import { ServerRankingService } from 'src/app/server/server-ranking.service';
 
 @Component({
-  selector: 'app-profile-profe',
-  templateUrl: './profile-profe.component.html',
-  styleUrls: ['./profile-profe.component.css']
+  selector: 'app-profile-admin',
+  templateUrl: './profile-admin.component.html',
+  styleUrls: ['./profile-admin.component.css']
 })
-export class ProfileProfeComponent implements OnInit {
+export class ProfileAdminComponent implements OnInit {
 
   router: Router;
   route: ActivatedRoute;

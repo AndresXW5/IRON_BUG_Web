@@ -8,11 +8,11 @@ import Swal from 'sweetalert2';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-edit-profile-profe',
-  templateUrl: './edit-profile-profe.component.html',
-  styleUrls: ['./edit-profile-profe.component.css']
+  selector: 'app-edit-profile-admin',
+  templateUrl: './edit-profile-admin.component.html',
+  styleUrls: ['./edit-profile-admin.component.css']
 })
-export class EditProfileProfeComponent implements OnInit {
+export class EditProfileAdminComponent implements OnInit {
 router: Router;
 route: ActivatedRoute;
 
