@@ -7,11 +7,11 @@ import Swal from 'sweetalert2';
 import { faNotesMedical } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-edit-profile-alumno',
-  templateUrl: './edit-profile-alumno.component.html',
-  styleUrls: ['./edit-profile-alumno.component.css']
+  selector: 'app-edit-profile-user',
+  templateUrl: './edit-profile-user.component.html',
+  styleUrls: ['./edit-profile-user.component.css']
 })
-export class EditProfileAlumnoComponent implements OnInit {
+export class EditProfileUserComponent implements OnInit {
 router: Router;
 route: ActivatedRoute;
 alums!: FormGroup;

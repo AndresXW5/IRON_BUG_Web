@@ -1,4 +1,5 @@
 
+
 import { Routing } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterAlumnoComponent } from './components/register-alumno/register-alumno.component';
 import { RegisterProfeComponent } from './components/register-profe/register-profe.component';
-import { ProfileAlumnoComponent } from './components/profile-alumno/profile-alumno.component';
+import { ProfileUserComponent } from './components/profile-user/profile-alumno.component';
 import { ProfileProfeComponent } from './components/profile-profe/profile-profe.component';
 import { LoginComponent } from './components/login/login.component';
 
@@ -16,7 +17,7 @@ import { RankingAdminComponent } from './components/ranking-admin/ranking-admin.
 import { HttpClientModule } from '@angular/common/http';
 // import { ModificarComponent } from './components/modificar/modificar.component';
 import { EditProfileProfeComponent } from './components/edit-profile-profe/edit-profile-profe.component';
-import { EditProfileAlumnoComponent } from './components/edit-profile-alumno/edit-profile-alumno.component';
+import { EditProfileUserComponent } from './components/edit-profile-user/edit-profile-user.component';
 import { ProductosComponent } from './components/productos/productos.component';
 
 @NgModule({
@@ -27,11 +28,11 @@ import { ProductosComponent } from './components/productos/productos.component';
     RegisterProfeComponent,
     LoginComponent,
     ProfileProfeComponent,
-    ProfileAlumnoComponent,
+    ProfileUserComponent,
     RankingAdminComponent,
     // ModificarComponent,
     EditProfileProfeComponent,
-    EditProfileAlumnoComponent,
+    EditProfileUserComponent,
     ProductosComponent,
 
 

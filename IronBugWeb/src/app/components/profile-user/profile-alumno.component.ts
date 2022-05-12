@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServerAlumnoService } from 'src/app/server/server-alumno.service';
-import { ServerRankingService } from './../../server/server-ranking.service';
+import { ServerRankingService } from '../../server/server-ranking.service';
 import { Usuario, Ranking } from 'src/app/interfaces/interfaz';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-profile-alumno',
-  templateUrl: './profile-alumno.component.html'
+  selector: 'app-profile-user',
+  templateUrl: './profile-user.component.html'
 })
-export class ProfileAlumnoComponent implements OnInit {
+export class ProfileUserComponent implements OnInit {
 
   router: Router;
   route: ActivatedRoute;
