@@ -33,4 +33,13 @@ export class ServerProductosService {
     return this.http.get(`${this.URL}productos/insertarProd.php?id_user=${id_user}&id_r=${id_Producto.id}`);
   }
 
+  listarHistorial(id_usuaro: number){
+    console.log("IdUser en Seervice", id_usuaro);
+    return this.http.get(`${this.URL}productos/listarHistorial.php?id_alumno=${id_usuaro}`);
+  }
+
+
+
+
+
 }

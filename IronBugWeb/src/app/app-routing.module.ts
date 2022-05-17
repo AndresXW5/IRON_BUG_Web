@@ -1,4 +1,4 @@
-import { ProfileUserComponent } from './components/profile-user/profile-alumno.component';
+import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 import { EditProfileAdminComponent } from './components/edit-profile-profe/edit-profile-admin.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';

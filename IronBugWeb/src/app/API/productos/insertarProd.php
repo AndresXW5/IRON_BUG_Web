@@ -17,11 +17,12 @@
   $conexion = conexion(); // CREA LA CONEXION
   $json= file_get_contents('php://input');
   $unirse=json_decode($json);
+
   echo "Unirse ==>> ", $unirse, "<br>";
 
 
   // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($conexion, "INSERT INTO `carrito` (`id_prod`, `id_user`) VALUES ('$id_user', '$id_r')");
+  $registros = mysqli_query($conexion, "INSERT INTO `carrito` (`id_prod`, `id_user`) VALUES ('$id_r', '$id_user')");
 
   //echo "$registros";
 

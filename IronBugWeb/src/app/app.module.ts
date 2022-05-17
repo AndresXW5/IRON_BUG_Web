@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { RegisterProfeComponent } from './components/register-profe/register-profe.component';
-import { ProfileUserComponent } from './components/profile-user/profile-alumno.component';
+import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 import { ProfileAdminComponent } from './components/profile-profe/profile-admin.component';
 import { LoginComponent } from './components/login/login.component';
 

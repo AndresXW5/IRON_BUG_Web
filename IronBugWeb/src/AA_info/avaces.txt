@@ -7,25 +7,13 @@ DOCUMENTO PARA IDENTIFICAR CAMBIOS Y NOVEDADES
 -Registro admin => No se podra registrar desde el mismo sito que el usuario, lo tendra que registrar otro administrador desde su perfil
         [Cambiar ruta y poner boton en admin-profile]
 
-
+...
 
 
 CAMBIOS PENDIENTES:
 
--Quitar nombres de Ga [alguno creo que no se puede quitar, da errores]
-
--Cambiar nombres de variables{
-  -usuario{
-    -
-    -
-  }
-  -administrador{
-    -
-    -
-  }
-}
 
 
 HACIENDO:
 
-CABIAR nombre variables de login...
+

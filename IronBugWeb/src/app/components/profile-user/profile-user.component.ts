@@ -1,8 +1,8 @@
+import { ServerProductosService } from './../../server/server-productos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServerUserService } from 'src/app/server/server-user.service';
-import { ServerRankingService } from '../../server/server-ranking.service';
-import { Usuario, Ranking } from 'src/app/interfaces/interfaz';
+import { Usuario } from 'src/app/interfaces/interfaz';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,7 +18,7 @@ export class ProfileUserComponent implements OnInit {
   rankingTodo: any;
 
 
-  constructor(router: Router, route: ActivatedRoute, private service: ServerUserService, private serverRankingService: ServerRankingService) {
+  constructor(router: Router, route: ActivatedRoute, private service: ServerUserService, private ServerProductosService: ServerProductosService) {
 
     this.route = route;
     this.router = router;
@@ -48,21 +48,14 @@ export class ProfileUserComponent implements OnInit {
     avatar: ""
   }
 
-  ranking: Ranking = {
-    id_r: 0,
-    id_usuario: 0,
-    name_r: "",
-    codigo: 0
+  historialArray: [] | any = {
+    id_linea: 0,
+    id_prod: 0,
+    id_user: 0,
+    nombre_prod: "",
+    precio: 0,
   }
 
-  // rankingList: Ranking[] = [];
-
-
-  ranking_=['Queso','Macarrones','Tomate','Virria'];
-  // ListRanking = [this.ranking.name_r, 'name_r', 'cont_r',];
-  ListRanking = ['id_r', 'name_r', 'cont_r',];
-
-  rankingsArray: [] | any;
 
   ngOnInit(): void {
     this.usuario = {
@@ -77,32 +70,24 @@ export class ProfileUserComponent implements OnInit {
             avatar: String(this.route.snapshot.paramMap.get('avatar'))
           };
 
-    // this.ranking = {
-    //         id_r: Number(this.route.snapshot.paramMap.get('id_r')),
-    //         name_r: String(this.route.snapshot.paramMap.get('name_r')),
-    //         cont_r: Number(this.route.snapshot.paramMap.get('cont_r'))
-    //       };
+          console.log("ID User(TS)", this.usuario.id_usuario);
 
-          // this.listar_ranking();
-    this.serverRankingService.listarRanking(this.ranking).subscribe(
-      (datos: any) => {
-        console.log("lISTAR ORIGINAL",this.ranking);// NO llega
-        this.rankingsArray = datos;
-      }
-    );
-
-
-          //Listar todo para verificar el ranking al que se puede unir el usuario
-          this.serverRankingService.listarTodoRanking(this.ranking).subscribe(
+          this.ServerProductosService.listarHistorial(this.usuario.id_usuario).subscribe(
             (datos: any) => {
-              this.ranking = datos;
-              console.log("Listar Todos ==>", this.ranking);
+              this.historialArray = datos;
+
+              console.log("ArrayHistProd", this.historialArray);
             }
           );
 
 
 
+
     }
+
+
+
+    //Funciones ↓↓↓
 
       volver(){
         localStorage.clear();
@@ -111,17 +96,9 @@ export class ProfileUserComponent implements OnInit {
       carrito(){
         this.router.navigate(['productos', this.usuario]);
       }
-      _ranking(){
-        this.router.navigate(['ranking']);
-      }
-      listar_ranking(){
-        this.router.navigate(['ranking']);
-      }
+
       editar(){
         this.router.navigate(['editar-alumno', this.usuario]);
-      }
-      addRank(){
-
       }
 
       async editarImagen() {
@@ -165,39 +142,6 @@ export class ProfileUserComponent implements OnInit {
         }
       }
 
-      async unirseRanking() {
-
-        const { value: codigo } = await Swal.fire({
-          title: 'Unirse ranking',
-          input: 'text',
-          text: 'Introduzca el codigo para unirte'
-        })
-            // console.log("El codigo de la BD es: ", this.ranking);   //this.ranking.codigo
-            console.log("El codigo introducido es: ", codigo);
-
-        // if(this.ranking.codigo == codigo){
-          console.log("Dentro");
-          this.serverRankingService.unirseRanking(codigo).subscribe(
-              datos => {
-                if(datos == 'NO'){
-                  Swal.fire(
-                    'Error',
-                    'No existe.',
-                    'error'
-                  )
-                }else if (datos == 'OK'){
-                  Swal.fire(
-                    'Error',
-                    'Ya estas en este ranking.',
-                    'error'
-                  )
-                }
-            }
-          );
-        // }else{
-        //   console.log("No entra en el 'if'");
-        // }
-      }
 
       async modifyPassword() {
         const { value: formValues } = await Swal.fire({
