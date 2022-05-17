@@ -44,3 +44,8 @@ export interface Usuario {
     descripcion: string,
     foto: string
   }
+
+  export interface Carrito {
+    id_prod: number;
+    id_user?: number;
+  }

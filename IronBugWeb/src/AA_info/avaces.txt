@@ -12,7 +12,7 @@ DOCUMENTO PARA IDENTIFICAR CAMBIOS Y NOVEDADES
 
 CAMBIOS PENDIENTES:
 
--Quitar nombres de Gamifika [alguno creo que no se puede quitar, da errores]
+-Quitar nombres de Ga [alguno creo que no se puede quitar, da errores]
 
 -Cambiar nombres de variables{
   -usuario{

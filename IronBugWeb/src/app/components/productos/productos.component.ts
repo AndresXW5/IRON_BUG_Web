@@ -2,6 +2,7 @@ import { ServerProductosService } from './../../server/server-productos.service'
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Productos, Usuario } from 'src/app/interfaces/interfaz';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos',
@@ -39,6 +40,10 @@ export class ProductosComponent implements OnInit {
 
   }
 
+
+
+  id_Producto : Productos = this.productos;
+
   // productosArray: [] | any;
 
   ngOnInit(): void {
@@ -54,11 +59,18 @@ export class ProductosComponent implements OnInit {
        avatar: String(this.route.snapshot.paramMap.get('avatar'))
      };
 
+    //  this.productos = {
+    //   id: Number(this.route.snapshot.paramMap.get('id')),
+    //   nombre: String(this.route.snapshot.paramMap.get('nombre')),
+    //  };
+
     this.service.listarProducto(this.productos).subscribe(
       datos => {
 
         this.productos = datos;
-        console.log("En TS", this.productos);
+
+        console.log("E", this.productos);
+        // console.log("En TS", this.id_Producto);
       }
     );
 
@@ -66,6 +78,34 @@ export class ProductosComponent implements OnInit {
   }
 
 
+  incremento = 0;
+
+  agregar_carrito(cont: number){
+    // this.incremento ++;
+      this.id_Producto = this.productos[cont];
+
+            this.service.anadirProd(this.usuario.id_usuario, this.id_Producto).subscribe(
+              datos => {
+                console.log(this.productos.id);
+              }
+
+
+    //   datos => {
+    //           console.log("En TScarrito",this.usuario.id_usuario);
+    //     if (datos == 'OK') {
+    //       Swal.fire(
+    //         'Correcto',
+    //       )
+    //     } else {
+    //       Swal.fire(
+    //         'Error',
+    //       )
+
+    //     }
+
+    //  }
+    )
+  }
 
   carrito(){
     this.router.navigate(['palumno', this.usuario]);

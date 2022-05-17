@@ -27,19 +27,17 @@
         </button> <!--bg-secondary -->
         <div class="collapse navbar-collapse" id="navbarResponsive" style="height: 65px; background-color: rgba(59, 59, 59, 0.707); border-radius: 7px;">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="productos()">Productos</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" href="#about">Sobre Nosotros</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" href="#contact">Contactanos</a></li>
+
                 <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px"  >Iniciar Sesión / Registrarse</a></li> -->
                 <li class="nav-item mx-0 mx-lg-1">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="carrito()" >
                     Carrito
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
                       <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                    </svg>
+                    </svg> / Perfil
                   </a>
                 </li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px"  >Sesion iniciada como <span style="color: red;">{{usuario.fname}} {{usuario.lname}}</span></a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px"><span style="color: red;">{{usuario.fname}} {{usuario.lname}}</span></a></li>
             </ul>
         </div>
     </div>
@@ -55,7 +53,7 @@
       <div class="content">
           <div class="container">
               <div class="row">
-                  <div *ngFor="let data of productos" class="col-xs-12 col-sm-4">
+                  <div *ngFor="let data of productos, let indice=index" class="col-xs-12 col-sm-4" >
                       <div class="card">
                           <a class="img-card">
                           <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" />
@@ -63,14 +61,18 @@
                         </a>
                           <div class="card-content">
                               <h4 class="card-title">
+                                    <p class="hiddenn">{{indice+1}}</p>
                                     {{ data.nombre }}
                               </h4>
                               <p class="">
                                     {{ data.descripcion }}
                               </p>
+                              <h4 class="card-title d-flex " style="flex-direction: column; align-items: flex-end;">
+                                    {{ data.precio }} €
+                              </h4>
                           </div>
                           <div class="card-read-more">
-                              <a class="btn btn-link-danger btn-block">
+                              <a class="btn btn-link-danger btn-block" (click)="agregar_carrito(indice)">
                                   Añadir al carrito
                               </a>
                           </div>
