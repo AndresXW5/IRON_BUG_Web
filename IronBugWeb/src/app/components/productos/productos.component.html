@@ -61,12 +61,14 @@
                         </a>
                           <div class="card-content">
                               <h4 class="card-title">
-                                    <p class="hiddenn">{{indice+1}}</p>
                                     {{ data.nombre }}
                               </h4>
                               <p class="">
                                     {{ data.descripcion }}
                               </p>
+
+                              <a style="visibility:hidden;">{{indice+1}}</a>
+
                               <h4 class="card-title d-flex " style="flex-direction: column; align-items: flex-end;">
                                     {{ data.precio }} €
                               </h4>

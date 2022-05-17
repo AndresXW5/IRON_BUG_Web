@@ -25,12 +25,12 @@ export class ServerProductosService {
   }
 
   //Añadir Producto a carrito
-  anadirProd( id_user: number, id_Producto: Productos){
+  anadirProd( id_user: number, id_Producto: Productos, nombre: Productos, precio: Productos){
     this.productos = id_Producto;
 
-    console.log("Service de productos/User", id_user);
-    console.log("Service de productos/prod", id_Producto.id);
-    return this.http.get(`${this.URL}productos/insertarProd.php?id_user=${id_user}&id_r=${id_Producto.id}`);
+    // console.log("Service de productos/nombre", nombre);
+    // console.log("Service de productos/precio", precio);
+    return this.http.get(`${this.URL}productos/insertarProd.php?id_user=${id_user}&id_r=${id_Producto.id}&nombre=${id_Producto.nombre}&precio=${id_Producto.precio}`);
   }
 
   listarHistorial(id_usuaro: number){

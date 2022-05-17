@@ -6,6 +6,8 @@
 
   $id_user = $_GET['id_user'];
   $id_r = $_GET['id_r'];
+  $nombre = $_GET['nombre'];
+  $precio = $_GET['precio'];
 
   echo "ID/user  ", $id_user;
   echo "  _____   ID/rank  ", $id_r;
@@ -22,7 +24,7 @@
 
 
   // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($conexion, "INSERT INTO `carrito` (`id_prod`, `id_user`) VALUES ('$id_r', '$id_user')");
+  $registros = mysqli_query($conexion, "INSERT INTO `carrito` (`id_prod`, `id_user`, `nombre_prod`, `precio_prod`) VALUES ('$id_r', '$id_user', '$nombre', '$precio')");
 
   //echo "$registros";
 

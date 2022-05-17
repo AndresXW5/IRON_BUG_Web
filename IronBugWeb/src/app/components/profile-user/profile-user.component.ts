@@ -97,6 +97,10 @@ export class ProfileUserComponent implements OnInit {
         this.router.navigate(['productos', this.usuario]);
       }
 
+      juego(){
+        location.href = 'https://www.mediafire.com/';
+      }
+
       editar(){
         this.router.navigate(['editar-alumno', this.usuario]);
       }

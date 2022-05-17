@@ -84,26 +84,13 @@ export class ProductosComponent implements OnInit {
     // this.incremento ++;
       this.id_Producto = this.productos[cont];
 
-            this.service.anadirProd(this.usuario.id_usuario, this.id_Producto).subscribe(
+            this.service.anadirProd(this.usuario.id_usuario, this.id_Producto, this.productos.nombre, this.productos.precio).subscribe(
               datos => {
                 console.log(this.productos.id);
               }
 
 
-    //   datos => {
-    //           console.log("En TScarrito",this.usuario.id_usuario);
-    //     if (datos == 'OK') {
-    //       Swal.fire(
-    //         'Correcto',
-    //       )
-    //     } else {
-    //       Swal.fire(
-    //         'Error',
-    //       )
 
-    //     }
-
-    //  }
     )
   }
 
