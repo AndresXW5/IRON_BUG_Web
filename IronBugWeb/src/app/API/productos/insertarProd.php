@@ -24,7 +24,7 @@
 
 
   // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($conexion, "INSERT INTO `carrito` (`id_prod`, `id_user`, `nombre_prod`, `precio_prod`) VALUES ('$id_r', '$id_user', '$nombre', '$precio')");
+  $registros = mysqli_query($conexion, "INSERT INTO `lineas_carrito` (`id_prod`, `id_user`, `nombre_prod`, `precio_prod`) VALUES ('$id_r', '$id_user', '$nombre', '$precio')");
 
   //echo "$registros";
 

@@ -14,7 +14,7 @@
   $conexion = conexion(); // CREA LA CONEXION
 
   // REALIZA LA QUERY A LA BD
-  $listado = mysqli_query($conexion, "SELECT `id_linea`, `id_prod`, `id_user`, `nombre_prod`, `precio_prod` FROM `carrito` WHERE `id_user` = $_GET[id_alumno]");
+  $listado = mysqli_query($conexion, "SELECT `id_linea`, `id_prod`, `id_user`, `nombre_prod`, `precio_prod` FROM `lineas_carrito` WHERE `id_user` = $_GET[id_alumno]");
   // $listado = mysqli_query($conexion, "SELECT * FROM productos WHERE id_alumno = $_GET[id_alumno]");
 
   while ($resultadoArray = mysqli_fetch_array($listado)) {

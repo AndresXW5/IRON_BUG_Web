@@ -6,13 +6,11 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { RegisterProfeComponent } from './components/register-profe/register-profe.component';
 import { ProfileAdminComponent } from './components/profile-profe/profile-admin.component';
-import { RankingAdminComponent } from './components/ranking-admin/ranking-admin.component';
 import { EditProfileUserComponent } from './components/edit-profile-user/edit-profile-user.component';
 import { ProductosComponent } from './components/productos/productos.component';
 
 
 const routes: Routes = [
-    { path: 'adminRank', component: RankingAdminComponent, pathMatch: 'full'},
     { path: 'login', component: LoginComponent, pathMatch: 'full'},
     { path: '', component: HomeComponent, pathMatch: 'full'},
     { path: 'ralumno', component: RegisterUserComponent, pathMatch: 'full'},

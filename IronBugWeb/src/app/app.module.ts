@@ -12,7 +12,6 @@ import { ProfileAdminComponent } from './components/profile-profe/profile-admin.
 import { LoginComponent } from './components/login/login.component';
 
 import { APP_BASE_HREF } from '@angular/common';
-import { RankingAdminComponent } from './components/ranking-admin/ranking-admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditProfileAdminComponent } from './components/edit-profile-profe/edit-profile-admin.component';
 import { EditProfileUserComponent } from './components/edit-profile-user/edit-profile-user.component';
@@ -27,7 +26,6 @@ import { ProductosComponent } from './components/productos/productos.component';
     LoginComponent,
     ProfileAdminComponent,
     ProfileUserComponent,
-    RankingAdminComponent,
     // ModificarComponent,
     EditProfileAdminComponent,
     EditProfileUserComponent,

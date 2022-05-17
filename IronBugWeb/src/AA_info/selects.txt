@@ -1,0 +1,54 @@
+SELECT USUARIOS
+Programacion:$sql2="SELECT * FROM `usuarios` WHERE `id:_usuario` like ".$id:_usuario;
+SQL:SELECT * FROM `usuarios` WHERE `id` like 0
+
+MOSTRAR ALUMNO
+SELECT * FROM alumnos WHERE mail='$alumnoParam->mail' AND pssw='$datos'
+
+INSERTAR ALUMNO
+INSERT INTO `usuarios` (`id_usuario`, `nick`, `fname`, `lname`, `mail`, `fecha`, `pssw`, `psswConf`,`avatar`)
+ VALUES (NULL, '$datos', '$datos', '$datos', '$datos', '$datos', '$datos', '$datos','$datos')
+
+ELIMNIR ALUMNO
+DELETE FROM usuarios WHERE id_usuario='$_GET[id_usuario]'
+
+ELIMINAR USER
+UPDATE `usuarios` SET nick = '$params->nick', fname = '$params->fname', lname = '$params->lname', mail = '$params->mail', fecha = '$params->fecha', avatar = '$params->avatar' WHERE id_alumno = $params->id_alumno;
+
+SELECT PRODUCTOS
+Programacion:$sql2="SELECT * FROM `productos` WHERE `id` like ".$id;
+SQL:SELECT * FROM `productos` WHERE `id` like 0
+
+SELECT CARRITO NO ESTA CERRADO
+SQL: SELECT * FROM `carrito` WHERE `cerrado` like 0
+
+SELECT CARRITO CERRADO
+SQL: SELECT * FROM `carrito` WHERE `cerrado` like 1
+
+CERRAR O ABRIR CARRITO
+UPDATE `carrito` SET `carrito` = "1" WHERE `id_carrito` LIKE 0
+
+INSERTAR PRODUCTOS A CARRITO
+INSERT INTO `lineas_carrito` (`id_prod`, `id_user`, `nombre_prod`, `precio_prod`) VALUES ('$id_r', '$id_user', '$nombre', '$precio')
+
+MOSTRAR PROD DE CARRITO
+SELECT `id_linea`, `id_prod`, `id_user`, `nombre_prod`, `precio_prod` FROM `lineas_carrito` WHERE `id_user` = $_GET[id_alumno]
+
+mPSTRAR TODOS LOS PRODUCTOS
+SELECT `nombreprod`, `descripcion`, `precio` FROM `productos` WHERE `id`
+
+DELETE PRODUCTOS
+Programacion: $sql2="DELETE FROM `usuarios` WHERE `id_user` like ".$idborrar;
+SQL: DELETE FROM `usuarios` WHERE `id_user` like 0
+
+UPDATE USUARIOS
+Programacion: $sql2="UPDATE `usuarios` SET `usuario`='".$fname."',`fname`='".$fname."' WHERE `id` like ".$id;
+SQL: UPDATE `usuarios` SET `usuario`='"ejemplo"',`fname`='"ejemplo"' WHERE `id` like 0
+
+
+
+
+
+
+
+
