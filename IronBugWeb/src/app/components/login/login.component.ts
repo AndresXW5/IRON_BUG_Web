@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['pprofe', datos]);
         }else {
           console.log(datos);
-          this.router.navigate(['login', datos]);
+          this.router.navigate(['palumno', datos]);
         }
       }
   )
