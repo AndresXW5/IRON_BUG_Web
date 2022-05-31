@@ -1,0 +1,33 @@
+
+<body>
+    <link href='ab.css' rel='stylesheet' type='text/css'>
+    <link href='file.css' rel='stylesheet' type='text/css'>
+<div class="container">
+  <div class="frame">
+    <div class="nav">
+      <ul>
+        <li class="signin-active"><a class="btn">Registrarse</a></li>
+
+      </ul>
+    </div>
+    <div ng-app ng-init="checked = false">
+    <form class="form-signin" enctype="multipart/form-data" action="/datosregistro.php" method ="POST" name="form">
+          <label for="usuario">Usuario</label>
+          <input class="form-styling" type="text" name="usuario" placeholder=""/>
+          <label for="contraseña">Contrase&ntilde;a</label>
+          <input class="form-styling" type="text" name="contraseña" placeholder=""/>
+          <div class="file-upload">
+              <label>Foto</label>
+            <label for="foto" class="file-upload__label">Sube tu imagen</label>
+            <input id="foto" class="file-upload__input" type="file" name="foto">
+        </div>
+          <input type="checkbox" id="checkbox"/>
+          <label for="checkbox" ><span class="ui"></span>Mantenme iniciado</label>
+          <div class="btn-animate">
+            <button type="submit" value="Submit"class="btn-signin" name="submit">Registrate!</button>
+          </div>
+				        </form>
+        
+	
+
+   
