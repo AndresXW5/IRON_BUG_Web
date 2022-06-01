@@ -18,7 +18,7 @@
   <!-- Core theme CSS (includes Bootstrap)-->
 
 </head>
-<section class="vh-full gradient-custom bg-SUCCESS">
+<section class="vh-full gradient-custom bg-SUCCESS" style="background-color: rgb(109, 109, 109)">
   <div class="container py-5 h-100  w">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -32,14 +32,24 @@
 
               <form [formGroup]="usuario" (ngSubmit)="onSubmit()" class="p-3 mt-3">
                 <div class="row">
-                  <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                    <div class="form-outline form-white mb-4 ">
-                      <label class="form-label" for="nick">Apodo</label>
-                      <input type="text" id="nick" class="form-control form-control-lg" placeholder="Apodo"
-                        formControlName="nick" [(ngModel)]="usuarios.nick">
-                    </div>
 
+                  <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="form-outline form-white mb-4 ">
+                      <label class="form-label" for="nick">Apodo
+                          <a (click)="infoApodo()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                          </a>
+                      </label>
+                      <input type="text" id="nick" class="form-control form-control-lg" placeholder="Apodo" required minlength="4" maxlength="20"
+                        formControlName="nick" [(ngModel)]="usuarios.nick">
+                        <div *ngIf="this.usuarios.nick.length < 3" style="color:red;">*Incorrecto</div>
+                    </div>
                   </div>
+
+
                   <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="fname">Nombre</label>
@@ -56,14 +66,13 @@
 
                     </div>
                   </div>
-                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+
+                  <!-- <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                     <div class="form-outline form-white mb-4">
                       <label class="form-label" for="fecha">Fecha</label>
-                      <input type="date" id="fecha" class="form-control form-control-lg" placeholder="Fecha"
-                        formControlName="fecha" [(ngModel)]="usuarios.fecha">
-
+                      <input type="date" id="fecha" class="form-control form-control-lg" placeholder="Fecha" formControlName="fecha" [(ngModel)]="usuarios.fecha">
                     </div>
-                  </div>
+                  </div> -->
 
 
                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
@@ -91,7 +100,7 @@
                   </div>
                 </div>
 
-                <button class="btn btn-outline-light btn-lg px-5" type="submit" [disabled]="!usuario.valid">Registrase</button>
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">Registrase</button>
               </form>
             </div>
             <div>

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ServerUserService } from 'src/app/server/server-user.service';
 import { PasswordValidator } from 'src/app/validator/password.validator';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register-user',
@@ -39,11 +40,11 @@ export class RegisterUserComponent implements OnInit {
 
   };
    ngOnInit(): void {
-      this.usuario =  this.formBuilder.group( {
+      this.usuario = this.formBuilder.group( {
         nick:['', [Validators.required, Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z0-9]+$')]],
         fname:['', [Validators.required, Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z]+$')]],
         lname:['', [Validators.required,Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z]+$') ]],
-        fecha:['', [Validators.required ]],
+        // fecha:['', [Validators.required ]],
         mail:['', [Validators.required, Validators.email]],
         pssw:['', [Validators.required, Validators.minLength(8)]],
         psswConf:['', [Validators.required, Validators.minLength(8)]],
@@ -56,7 +57,29 @@ export class RegisterUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.registrarAlumno();
+
+        if (this.usuario.valid) {
+          console.log(this.usuario.value);
+          this.registrarAlumno();
+        }
+        else{
+/////////////////////////////////
+
+          if(this.usuarios.nick.length < 3) {
+            console.log('Nick menor de 3')
+        }
+
+//////////////////////////////////
+          console.log('Campos incorrectos');
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Error. Revise los campos incorrectos por favor.',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+
   }
 
   //Funcion para conectar con el php
@@ -77,4 +100,19 @@ export class RegisterUserComponent implements OnInit {
 
     this.router.navigate(['login']);
   }
+
+
+
+
+
+  infoApodo(){
+      Swal.fire(
+    'Apodo',
+    'Este campo debe tener más de 3 caracteres.',
+    'info'
+    )
+  }
+
+
+
 }

@@ -1,0 +1,19 @@
+---Encriptar contraseña, repetir contraseña, la contraseña -> tipo contraseña (que no se vean contraseñas puestas)
+---
+---Validaciones en todos los campos (fechas,...) con mensajes experiencia usuario
+---
+<!-- ---Cuando pasen a otros enlaces que se abra en otra pestaña -->
+---
+---Imágenes sin link roto
+---
+---Presentación bien hecha, que se note ensayada, ejemplos reales en la base de datos
+---
+---Acabar de implementar las funciones del carrito
+---
+---el Admin --> CRUD de productos y de usuarios
+---
+---Trazabilidad entre los productos creados por el admin y lo que tiene acceso el usuario
+---
+---Presentación en inglés
+---
+---Aplicación que pueda verse en inglés y español pero sin mezclarlos, y que no se note que es una plantilla
