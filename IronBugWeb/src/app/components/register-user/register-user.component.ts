@@ -113,6 +113,25 @@ export class RegisterUserComponent implements OnInit {
     )
   }
 
+  infoNombre(){
+    Swal.fire(
+    'Nombre',
+    'Este campo debe tener más de 3 caracteres.',
+    'info'
+  )
+}
+
+infoApellido(){
+    Swal.fire(
+    'Apellido',
+    'Este campo debe tener más de 3 caracteres.',
+    'info'
+  )
+}
+
+
+
+
 
 
 }
