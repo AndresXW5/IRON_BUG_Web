@@ -1,6 +1,6 @@
 ---Encriptar contraseña, repetir contraseña, la contraseña -> tipo contraseña (que no se vean contraseñas puestas)
 ---
----Validaciones en todos los campos (fechas,...) con mensajes experiencia usuario
+<!-- ---Validaciones en todos los campos (fechas,...) con mensajes experiencia usuario -->  Faltaria que salte mensaje si el email no tiene simbolo @
 ---
 <!-- ---Cuando pasen a otros enlaces que se abra en otra pestaña -->
 ---

@@ -45,7 +45,7 @@
                       </label>
                       <input type="text" id="nick" class="form-control form-control-lg" placeholder="Apodo" required minlength="3" maxlength="20"
                         formControlName="nick" [(ngModel)]="usuarios.nick">
-                        <div *ngIf="this.usuarios.nick.length < 3" style="color:red;">*Incorrecto</div>
+                        <div *ngIf="this.usuarios.nick.length < 3" style="color:red;">*Revisar campo</div>
                     </div>
                   </div>
 
@@ -62,7 +62,7 @@
                       </label>
                       <input type="text" id="fname" class="form-control form-control-lg" placeholder="Nombre" required minlength="3" maxlength="20"
                         formControlName="fname" [(ngModel)]="usuarios.fname">
-                        <div *ngIf="this.usuarios.fname.length < 3" style="color:red;">*Incorrecto</div>
+                        <div *ngIf="this.usuarios.fname.length < 3" style="color:red;">*Revisar campo</div>
                     </div>
                   </div>
 
@@ -78,7 +78,7 @@
                       </label>
                       <input type="text" id="lname" class="form-control form-control-lg" placeholder="Apellido"
                         formControlName="lname" [(ngModel)]="usuarios.lname">
-                        <div *ngIf="this.usuarios.lname.length < 3" style="color:red;">*Incorrecto</div>
+                        <div *ngIf="this.usuarios.lname.length < 3" style="color:red;">*Revisar campo</div>
                     </div>
                   </div>
 
@@ -92,27 +92,51 @@
 
                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                       <div class="form-outline form-white mb-4">
-                        <label class="form-label" for="mail">Email</label>
+                        <label class="form-label" for="mail">Email
+                          <a (click)="infoEmail()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                          </a>
+                        </label>
                         <input type="mail" id="mail" class="form-control form-control-lg" placeholder="ejemplo@mail.com"
                           formControlName="mail" [(ngModel)]="usuarios.mail">
-
+                          <!-- <div *ngIf="this.usuarios.mail.length < 3" style="color:red;">*Revisar campo</div> -->
                       </div>
                     </div>
 
                     <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                    <div class="form-outline form-white mb-4">
-                      <label class="form-label" for="pssw">Contraseña</label>
-                      <input type="password" id="pssw" class="form-control form-control-lg"
-                        placeholder="********" formControlName="pssw" [(ngModel)]="usuarios.pssw">
+                      <div class="form-outline form-white mb-4">
+                        <label class="form-label" for="pssw">Contraseña
+                          <a (click)="infoContra()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                          </a>
+                        </label>
+                        <input type="password" id="pssw" class="form-control form-control-lg"
+                          placeholder="********" formControlName="pssw" [(ngModel)]="usuarios.pssw">
+                          <div *ngIf="this.usuarios.pssw.length < 8" style="color:red;">*Revisar campo</div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-6 col-xl-6">
-                    <div class="form-outline form-white mb-4">
-                      <label class="form-label" for="psswConf">Confirmar Contraseña</label>
-                      <input type="password" id="psswConf" class="form-control form-control-lg"
-                        placeholder="********" formControlName="psswConf" [(ngModel)]="usuarios.psswConf">
+
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                      <div class="form-outline form-white mb-4">
+                        <label class="form-label" for="psswConf">Confirmar Contraseña
+                          <a (click)="infoContraConf()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                          </a>
+                        </label>
+                        <input type="password" id="psswConf" class="form-control form-control-lg"
+                          placeholder="********" formControlName="psswConf" [(ngModel)]="usuarios.psswConf">
+                          <div *ngIf="this.usuarios.psswConf.length < 8" style="color:red;">*Revisar campo</div>
+                      </div>
                     </div>
-                  </div>
                 </div>
 
                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Registrase</button>

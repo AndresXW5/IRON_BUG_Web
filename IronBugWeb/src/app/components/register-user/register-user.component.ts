@@ -129,6 +129,35 @@ infoApellido(){
   )
 }
 
+infoEmail(){
+    Swal.fire(
+    'Email',
+    'Este campo debe tener formato de correo elctronico. Es decir, llevar el simbolo `@` como "nombre@gmail".',
+    'info'
+  )
+}
+
+infoContra(){
+    Swal.fire(
+    'Contraseña',
+    'Los requisitos para la contraseña son que debera tener un minimo de 8 caracteres numéricos o alfabéticos.',
+    'info'
+  )
+}
+
+infoContraConf(){
+    Swal.fire(
+    'Confirmacion de contraseña',
+    'Los requisitos para verificar la contraseña son los mismos que en contraseña.',
+    'info'
+  )
+}
+
+
+
+
+
+
 
 
 
