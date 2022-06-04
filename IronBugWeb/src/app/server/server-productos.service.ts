@@ -25,10 +25,10 @@ export class ServerProductosService {
   }
 
   //Añadir Producto a carrito
-  anadirProd( id_user: number, id_Producto: Productos, nombre: Productos, precio: Productos){
+  anadirProd(id_user: number, id_Producto: Productos, nombre: Productos, precio: Productos){
     this.productos = id_Producto;
 
-    // console.log("Service de productos/nombre", nombre);
+    console.log("Service de productos/nombre", id_Producto.id);
     // console.log("Service de productos/precio", precio);
     return this.http.get(`${this.URL}productos/insertarProd.php?id_user=${id_user}&id_r=${id_Producto.id}&nombre=${id_Producto.nombre}&precio=${id_Producto.precio}`);
   }
@@ -38,6 +38,11 @@ export class ServerProductosService {
     return this.http.get(`${this.URL}productos/listarHistorial.php?id_alumno=${id_usuaro}`);
   }
 
+  eliminarProd(id_user: number, id_Producto: number){
+      // this.productos = id_Producto;
+      console.log("Produto en el service", id_Producto);
+    return this.http.get(`${this.URL}productos/eliminarProd.php?id_user=${id_user}&id_producto=${id_Producto}`);
+  }
 
 
 

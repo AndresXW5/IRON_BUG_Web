@@ -83,7 +83,13 @@ export class ProductosComponent implements OnInit {
   agregar_carrito(cont: number){
     // this.incremento ++;
       this.id_Producto = this.productos[cont];
-
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Producto añadido correctamente al carrito!"',
+        showConfirmButton: false,
+        timer: 1500
+      })
             this.service.anadirProd(this.usuario.id_usuario, this.id_Producto, this.productos.nombre, this.productos.precio).subscribe(
               datos => {
                 console.log(this.productos.id);

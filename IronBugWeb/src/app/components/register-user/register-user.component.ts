@@ -41,7 +41,7 @@ export class RegisterUserComponent implements OnInit {
   };
    ngOnInit(): void {
       this.usuario = this.formBuilder.group( {
-        nick:['', [Validators.required, Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z0-9]+$')]],
+        nick:['', [Validators.required, Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z]+$')]],
         fname:['', [Validators.required, Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z]+$')]],
         lname:['', [Validators.required,Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z]+$') ]],
         // fecha:['', [Validators.required ]],
@@ -108,7 +108,7 @@ export class RegisterUserComponent implements OnInit {
   infoApodo(){
       Swal.fire(
     'Apodo',
-    'Este campo debe tener más de 3 caracteres.',
+    'Este campo debe tener más de 3 caracteres. No se permiten caracteres númericos',
     'info'
     )
   }
@@ -116,7 +116,7 @@ export class RegisterUserComponent implements OnInit {
   infoNombre(){
     Swal.fire(
     'Nombre',
-    'Este campo debe tener más de 3 caracteres.',
+    'Este campo debe tener más de 3 caracteres. No se permiten caracteres númericos',
     'info'
   )
 }
@@ -124,7 +124,7 @@ export class RegisterUserComponent implements OnInit {
 infoApellido(){
     Swal.fire(
     'Apellido',
-    'Este campo debe tener más de 3 caracteres.',
+    'Este campo debe tener más de 3 caracteres. No se permiten caracteres númericos',
     'info'
   )
 }

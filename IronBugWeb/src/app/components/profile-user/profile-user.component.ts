@@ -2,7 +2,7 @@ import { ServerProductosService } from './../../server/server-productos.service'
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServerUserService } from 'src/app/server/server-user.service';
-import { Usuario } from 'src/app/interfaces/interfaz';
+import { Productos, Usuario } from 'src/app/interfaces/interfaz';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -48,6 +48,14 @@ export class ProfileUserComponent implements OnInit {
     avatar: ""
   }
 
+  productos: Productos [] | any = {
+    id: 0,
+    nombre: "",
+    descripcion: "",
+    precio: 0,
+
+  }
+
   historialArray: [] | any = {
     id_linea: 0,
     id_prod: 0,
@@ -56,6 +64,7 @@ export class ProfileUserComponent implements OnInit {
     precio: 0,
   }
 
+  id_Producto : Productos = this.productos;
 
   ngOnInit(): void {
     this.usuario = {
@@ -104,6 +113,26 @@ export class ProfileUserComponent implements OnInit {
       editar(){
         this.router.navigate(['editar-alumno', this.usuario]);
       }
+
+      id_eliminar: number = 0;
+
+      eliminarProd(cont: number){
+        this.productos = this.historialArray[cont];
+        console.log('Array', this.historialArray[cont]);
+        console.log('Prod', this.productos[1])
+
+        this.id_eliminar = this.productos[1];
+        console.log('ID', this.id_eliminar);
+
+        this.ServerProductosService.eliminarProd(this.usuario.id_usuario, this.id_eliminar).subscribe(
+          datos => {
+            console.log(this.productos.id);
+          }
+
+        )
+      }
+
+
 
       async editarImagen() {
         const { value: file } = await Swal.fire({
