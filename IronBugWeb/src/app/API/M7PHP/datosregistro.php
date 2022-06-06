@@ -7,7 +7,7 @@ echo "El nombre es ".$usuario;
 $servidor="localhost";
 $usuarioBD="root";
 $password="usbw";
-$bd="daw2";
+$bd="iron_bug_web";
 if(isset($_POST['submit']))
 { 
 $filepath = $_FILES["foto"]["name"];
@@ -31,7 +31,7 @@ die("no se ha podido realizar la conexion".mysqli_connect_error());
 }else{
     mysqli_set_charset($con,"utf8");
     echo "se ha conectado correctamente";
-    $sql="INSERT INTO `usuarios` (`id`, `usuario`, `contraseña`, `foto`, `rol`) VALUES (null,'".$usuario."', '".$encrip."','".$base64."', 1)";
+    $sql="INSERT INTO `usuarios` (`id_usuario`, `nick`, `pssw`, `avatar`, `rol`) VALUES (null,'".$usuario."', '".$encrip."','".$base64."', 1)";
     $consulta=mysqli_query($con,$sql);
     if(!$consulta){
         die("no se ha podido realizar el insert");
@@ -74,5 +74,5 @@ die("no se ha podido realizar la conexion".mysqli_connect_error());
    
 <?php
 }
-header('Location:productos.php')
+header('Location:usus.php')
 ?>

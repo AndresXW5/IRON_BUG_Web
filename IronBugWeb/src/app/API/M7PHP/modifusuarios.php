@@ -13,6 +13,7 @@ $con=mysqli_connect($servidor,$usuarioBD,$password,$bd);
 if(isset($_POST['submit'])){
     $sql2="UPDATE `usuarios` SET `nick`='".$nombre."',`rol`='".$rol."' WHERE `id_usuario` like ".$id;
     $consulta=mysqli_query($con,$sql2);   
+    header('Location:prod.php');
 }
 ?>
 <link rel="stylesheet" href="b.scss"/>

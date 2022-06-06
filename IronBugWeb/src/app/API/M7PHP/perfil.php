@@ -20,12 +20,8 @@ echo "</div>";
       <label for="burger-checkbox" class="burger-label"></label>
 
       <ul class="navbar-list">
-        <li class="navbar-item"><a href="productos.php">Inicio</a></li>
-        <li class="navbar-item"><a href="productos.php">Productos</a></li>
-        <li class="navbar-item"><a href="productos.php">Foro</a></li>
         <?php
-        if(isset($_SESSION["login"])){
-          echo "<li class='navbar-item'><a href='carrito.php'>Carrito</a></li>";    
+        if(isset($_SESSION["login"])){ 
         echo "<li class='navbar-item'><a href='logout.php'>Cerrar Sesion</a></li>";
         echo "<li class='navbar-item'><a href=''>".$_SESSION["login"]."</a></li>";
         if($_SESSION['rol'] == 2){

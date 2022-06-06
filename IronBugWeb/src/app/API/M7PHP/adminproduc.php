@@ -52,7 +52,7 @@ echo "<body>
 <div class='fondo'>
 <div class='profile-card'>
     <h1>Productos</h1>
-   <form enctype='multipart/form-data' action='http://localhost/adminproduc.php' method ='POST'>
+   <form enctype='multipart/form-data' action='/M7PHP/adminproduc.php' method ='POST'>
     <label >Nombre de Producto</label>
     <input type='text' name='nombre' class='form-styling'>
     <br></br>
@@ -85,7 +85,7 @@ if(move_uploaded_file($_FILES["foto2"]["tmp_name"], $filepath))
 } 
 else 
 {
-echo "Error !!";
+echo "No pongas letras en el precio";
 }
 } 
 
@@ -98,8 +98,8 @@ die("no se ha podido realizar la conexion".mysqli_connect_error());
   
     $sql="INSERT INTO `productos` (`id`, `nombre`, `descripcion`,`precio`, `foto`) VALUES (null,'".$nombre."', '".$descripcion."',$precio,'".$base64."')";
     $consulta=mysqli_query($con,$sql);
-    if(!$consulta){
-        die("no se ha podido realizar el insert");
+    if($consulta){
+        header('Location:prod.php');
     }else{
     }
 

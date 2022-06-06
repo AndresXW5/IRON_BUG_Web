@@ -29,7 +29,6 @@ if(isset($_POST['productos'])){
       <label for="burger-checkbox" class="burger-label"></label>
 
       <ul class="navbar-list">
-        <li class="navbar-item"><a href="productos.php">Inicio</a></li>
         <?php
         if(isset($_SESSION["login"])){
          echo "<li class='navbar-item'><a href='logout.php'>Cerrar Sesion</a></li>";
@@ -60,6 +59,6 @@ if(isset($_POST['productos'])){
                    ?>
                    <?php
 }else{
-  header('Location:index.html');
+  header('Location:index.administrar');
 }
 ?>
