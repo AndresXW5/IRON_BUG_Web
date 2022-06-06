@@ -12,11 +12,20 @@ import { ProfileAdminComponent } from './components/profile-profe/profile-admin.
 import { LoginComponent } from './components/login/login.component';
 
 import { APP_BASE_HREF } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { EditProfileAdminComponent } from './components/edit-profile-profe/edit-profile-admin.component';
 import { EditProfileUserComponent } from './components/edit-profile-user/edit-profile-user.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ConfirmarPedidoComponent } from './components/confirmar-pedido/confirmar-pedido.component';
+import { HttpClientModule } from '@angular/common/http';
+//Librerias para traduccion
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HomeEnComponent } from './components/home-en/home-en.component';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [
@@ -32,7 +41,7 @@ import { ConfirmarPedidoComponent } from './components/confirmar-pedido/confirma
     EditProfileUserComponent,
     ProductosComponent,
     ConfirmarPedidoComponent,
-
+    HomeEnComponent,
 
     ],
   imports: [
@@ -40,7 +49,15 @@ import { ConfirmarPedidoComponent } from './components/confirmar-pedido/confirma
   ReactiveFormsModule,
   FormsModule,
   Routing,
-  HttpClientModule
+  HttpClientModule,
+  TranslateModule,
+  TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent],

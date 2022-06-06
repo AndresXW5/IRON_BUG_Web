@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-home-en',
+  templateUrl: './home-en.component.html',
+  styleUrls: ['./home-en.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeEnComponent implements OnInit {
+
   router: Router;
   route: ActivatedRoute;
   constructor(router: Router, route: ActivatedRoute, public translate: TranslateService) {
@@ -40,8 +41,7 @@ export class HomeComponent implements OnInit {
   }
 
   en(){
-    this.router.navigate(['home-en']);
+    this.router.navigate(['productos']);
   }
-
 
 }
