@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+    left: 117%;
+  }
+    .precio{
+        font-size: 36px;
+    }
+  .card{
+    width: 33.333333%;
+  }
+  
+  .estilo-c{
+    font-family: sans-serif;
+    width: 30%;
+  }
+  .estilo-c .img-container{
+    overflow: hidden;
+    height: 250px;
+    position: relative;
+    border-radius: 15px;
+  }
+  .estilo-c .img-container img{
+    width: 100%;
+    position: center;
+    top: -60%;
+    transition: all 0.5s;
+  
+  }
+  .estilo-c:hover .img-container img{
+    transform: scale(1.2);
+  }
+  
+  .estilo-c .info-container{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+  }
+  .estilo-c .info-container h3{
+    margin: 0;
+    position: relative;
+  }
+  .estilo-c .info-container h3,
+  .estilo-c .info-container strong,
+  .estilo-c .info-container span{
+    position: relative;
+    padding: 5px 15px;
+    width: 100%;
+  }
+  .estilo-c .add-cart{
+    margin-top: 2px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(255, 123, 0);
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 25px;
+    position: relative;
+  }
+  .estilo-c .add-cart:hover {
+    color: rgb(255, 136, 0);
+    background-color: white;
+    border: 1px solid rgb(255, 145, 0);
+  }
+  

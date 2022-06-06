@@ -145,7 +145,7 @@ export class ProfileUserEnComponent implements OnInit {
       }
 
       realizar_pedido(){
-        this.router.navigate(['confirmar-prod']);
+        this.router.navigate(['confirmar-prod', this.usuario ]);
       }
 
       async editarImagen() {
