@@ -3,7 +3,7 @@ session_start();
 if($_SESSION['rol'] == 2){
 $nombre=$_POST['filtro'];
 $filtro=$_POST['xcarrera'];
-$idborrar=$_GET['id_usuario'];
+$idborrar=$_GET['id'];
 $where="";
 $servidor="localhost";
 $usuarioBD="root";
@@ -31,7 +31,7 @@ if(isset($_POST['buscar'])){
         $consulta=mysqli_query($con,$sql2);
   }
   if(isset($_POST['crear'])){
-    header('Location:registrar.html');
+    header('Location:crearusuario.html');
   }
 ?>
 <!DOCTYPE html>
