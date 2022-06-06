@@ -56,9 +56,9 @@
                   <div *ngFor="let data of productos, let indice=index" class="col-xs-12 col-sm-4" >
                       <div class="card">
                           <a class="img-card">
-                          <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" />
-                          <!-- <img src="{{ data.foto }}" /> -->
-                        </a>
+                          <!-- <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" /> -->
+                          <img src="{{ data.foto }}" />
+                          </a>
                           <div class="card-content">
                               <h4 class="card-title">
                                     {{ data.nombre }}

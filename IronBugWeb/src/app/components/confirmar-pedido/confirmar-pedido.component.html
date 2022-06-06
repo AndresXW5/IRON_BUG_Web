@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>ajesty</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="height: 65px; background-color: rgb(59, 59, 59);">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top">Iron <span style="color: red;">Bug</span></a>
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button> <!--bg-secondary -->
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="height: 65px; background-color: rgba(59, 59, 59, 0.707); border-radius: 7px;">
+            <!-- <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="carrito()">Productos</a></li>
+
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px"  >Sesion iniciada como <span style="color: red;">{{usuario.fname}} {{usuario.lname}}</span></a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="volver()">Cerrar Sesion</a></li>
+            </ul> -->
+        </div>
+    </div>
+  </nav>
+  <section class="vh-100 gradient-custom" style="background-color: rgb(109, 109, 109);">
+    <div class="container bg-light rounded-bottom ">
+      <div class="main-body">
+
+
+
+      </div>
+    </div>
+
+
+
+    <div class="container bg-light rounded mt-4 ">
+      <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-12 mb-3">
+            <div class="card">
+              <div class="card-header">
+                <!-- <h4>Carrito de {{ usuario.fname }} {{ usuario.lname }}</h4> -->
+              </div>
+              <div class="card-body" >
+
+                <ul class="list-group list-group-flush">
+                  <!-- <li *ngFor="let data of historialArray, let indice=index" class="list-group-item d-flex justify-content-between align-items-center flex-wrap "> -->
+                    <h6 class="mb-0">
+                        <!-- {{data.nombre_prod}} -->
+                    </h6>
+                    <h6 class="mb-0">
+                        <!-- {{data.precio_prod}} € -->
+                    </h6>
+                    <!-- <a style="visibility:hidden;">{{indice+1}}</a> -->
+                    <div class="md-8">
+                      <!-- <button type="button" class="btn btn-primary float-right" style="margin-left: 20px;">VER</button>
+                      <button type="button" class="btn btn-success float-right" style="margin-left: 20px;">Cantidad</button> -->
+                      <!-- <button type="button" (click)="eliminarProd(indice)" class="btn btn-danger float-right" style="margin-left: 20px;">Eliminar producto</button> -->
+                    </div>
+                  <!-- </li> -->
+                </ul>
+              </div>
+            </div>
+            <h6>
+              <button class="btn btn-success float-right" style="margin-top: 20px;">
+                Realizar pedido
+              </button>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

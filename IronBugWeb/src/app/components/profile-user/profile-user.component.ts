@@ -127,12 +127,25 @@ export class ProfileUserComponent implements OnInit {
         this.ServerProductosService.eliminarProd(this.usuario.id_usuario, this.id_eliminar).subscribe(
           datos => {
             console.log(this.productos.id);
-          }
 
+          }
         )
+
+          Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Producto eliminado correctamente del carrito!"',
+          showConfirmButton: false,
+          timer: 1300
+        })
+
+        //Se actualiza en x segundos
+        setTimeout('window.location.reload()',1300);
       }
 
-
+      realizar_pedido(){
+        this.router.navigate(['confirmar-prod']);
+      }
 
       async editarImagen() {
         const { value: file } = await Swal.fire({

@@ -1,3 +1,4 @@
+import { ConfirmarPedidoComponent } from './components/confirmar-pedido/confirmar-pedido.component';
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 import { EditProfileAdminComponent } from './components/edit-profile-profe/edit-profile-admin.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: 'editar-profe', component: EditProfileAdminComponent, pathMatch: 'full'},
     { path: 'editar-alumno', component: EditProfileUserComponent, pathMatch: 'full'},
     { path: 'productos', component: ProductosComponent, pathMatch: 'full'},
+    { path: 'confirmar-prod', component: ConfirmarPedidoComponent, pathMatch: 'full'},
 
   { path: '**', redirectTo: '/register' } //Dejar la ultima
   ];

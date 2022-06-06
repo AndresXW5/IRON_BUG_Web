@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditProfileAdminComponent } from './components/edit-profile-profe/edit-profile-admin.component';
 import { EditProfileUserComponent } from './components/edit-profile-user/edit-profile-user.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { ConfirmarPedidoComponent } from './components/confirmar-pedido/confirmar-pedido.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ProductosComponent } from './components/productos/productos.component';
     EditProfileAdminComponent,
     EditProfileUserComponent,
     ProductosComponent,
+    ConfirmarPedidoComponent,
 
 
     ],
