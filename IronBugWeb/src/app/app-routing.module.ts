@@ -1,3 +1,7 @@
+import { ProductosEnComponent } from './components/productos-en/productos-en.component';
+import { EditarAlumnoEnComponent } from './components/editar-alumno-en/editar-alumno-en.component';
+import { ProfileUserEnComponent } from './components/profile-user-en/profile-user-en.component';
+import { RegisterUserEnComponent } from './components/register-user-en/register-user-en.component';
 import { LoginEnComponent } from './components/login-en/login-en.component';
 import { HomeEnComponent } from './components/home-en/home-en.component';
 import { ConfirmarPedidoComponent } from './components/confirmar-pedido/confirmar-pedido.component';
@@ -27,6 +31,10 @@ const routes: Routes = [
     //English ↓
     { path: 'home-en', component: HomeEnComponent, pathMatch: 'full'},
     { path: 'login-en', component: LoginEnComponent, pathMatch: 'full'},
+    { path: 'ralumno-en', component: RegisterUserEnComponent, pathMatch: 'full'},
+    { path: 'palumno-en', component: ProfileUserEnComponent, pathMatch: 'full'},
+    { path: 'editar-alumno-en', component: EditarAlumnoEnComponent, pathMatch: 'full'},
+    { path: 'productos-en', component: ProductosEnComponent, pathMatch: 'full'},
 
   { path: '**', redirectTo: '/register' } //Dejar la ultima
   ];

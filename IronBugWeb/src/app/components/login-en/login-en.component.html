@@ -31,7 +31,7 @@
                 <form [formGroup]="admin" (ngSubmit)="listarProfesor()" class="p-3 mt-3">
                 <div class="form-outline form-white mb-4">
                     <label class="form-label" for="typeEmailX">Email</label>
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg"  placeholder="ejemplo@mail.com"
+                  <input type="email" id="typeEmailX" class="form-control form-control-lg"  placeholder="example@mail.com"
                   formControlName="mail"
                   [(ngModel)]="admin_.mail">
 
@@ -51,7 +51,7 @@
 
               <div>
                 <p class="mb-0">You have not registered?</p>
-                  <br><a class="text-white-50 fw-bold" (click)="registerAlumno()">Register <a class="fw-bold">here!</a></a>
+                  <br><a class="text-white-50 fw-bold" (click)="registerAlumno_en()">Register <a class="fw-bold">here!</a></a>
                   <p></p>
                   <!-- <a class="text-white-50 fw-bold" (click)="registerProfe()">Registrar Admin(quitar de <a class="fw-bold">aqui!</a>)</a> -->
               </div>

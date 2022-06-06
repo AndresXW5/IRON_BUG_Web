@@ -28,12 +28,12 @@
         </button> <!--bg-secondary -->
         <div class="collapse navbar-collapse" id="navbarResponsive" style="height: 65px; background-color: rgba(59, 59, 59, 0.707); border-radius: 7px;">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="carrito()">Productos</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="carrito()">Products</a></li>
                 <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" href="#about">Sobre Nosotros</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" href="#contact">Contactanos</a></li> -->
                 <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px"  >Iniciar Sesión / Registrarse</a></li> -->
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px"  >Sesion iniciada como <span style="color: red;">{{usuario.fname}} {{usuario.lname}}</span></a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="volver()">Cerrar Sesion</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px"  >Logget in as <span style="color: red;">{{usuario.fname}} {{usuario.lname}}</span></a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" style="margin-left:20px" (click)="volver()">Log out</a></li>
             </ul>
         </div>
     </div>
@@ -55,7 +55,7 @@
                   </ng-template>
                   <div class="mt-3">
                     <h4>{{usuario.nick}}</h4>
-                    <button class="btn btn-outline-primary" (click)="volver()">Cerrar Sesión</button>
+                    <button class="btn btn-outline-primary" (click)="volver()">Log out</button>
                   </div>
                 </div>
               </div>
@@ -67,7 +67,7 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-3">
-                    <h6 class="mb-0">Nombre</h6>
+                    <h6 class="mb-0">Name</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
                     {{usuario.fname}}
@@ -76,7 +76,7 @@
                 <hr>
                 <div class="row">
                   <div class="col-sm-3">
-                    <h6 class="mb-0">Apellido</h6>
+                    <h6 class="mb-0">Last name</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
                     {{usuario.lname}}
@@ -85,7 +85,7 @@
                 <hr>
                 <div class="row">
                   <div class="col-sm-3">
-                    <h6 class="mb-0">Correo</h6>
+                    <h6 class="mb-0">Email</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
                     {{usuario.mail}}
@@ -103,18 +103,18 @@
                 <hr> -->
                 <div class="row">
                   <div class="col-sm-3">
-                    <h6 class="mb-0">Contraseña</h6>
+                    <h6 class="mb-0">Password</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
                     <div class="col-sm-12">
-                      <a class="btn btn-outline-info" (click)="modifyPassword()">Cambiar Contraseña</a>
+                      <a class="btn btn-outline-info" (click)="modifyPassword()">Change Password</a>
                     </div>
                   </div>
                 </div>
                 <hr>
                 <div class="row">
                   <div class="col-sm-12">
-                    <a (click)="editar()"class="btn btn-outline-info">Editar</a>
+                    <a (click)="editar()"class="btn btn-outline-info">Edit</a>
                   </div>
                 </div>
               </div>
@@ -130,11 +130,11 @@
           <div class="col-md-12 mb-3">
             <div class="card" style="display: flex;">
 
-                <h4>Visita nuestro merchandaising o descarga el videojuego!</h4>
+                <h4>Visit our merchandising or download the video game!</h4>
                 <div>
-                  <button type="button" (click)="carrito()"  class="btn btn-secondary float:right" style="width: 49%; margin-right: 10px;">CATALOGO</button>
+                  <button type="button" (click)="carrito()"  class="btn btn-secondary float:right" style="width: 49%; margin-right: 10px;">CATALOGUE</button>
                   <a href="https://www.mediafire.com/file/kkt8xgk9ur29jgd/PelotaGame.zip/file" target="_blank">
-                    <button type="button" class="btn btn-secondary "style="width: 49%;">DESCARGA EL VIDEOJUEGO AQUI</button>
+                    <button type="button" class="btn btn-secondary "style="width: 49%;">DOWNLOAD THE VIDEO GAME HERE</button>
                   </a>
                 </div>
             </div>
@@ -149,7 +149,7 @@
           <div class="col-md-12 mb-3">
             <div class="card">
               <div class="card-header">
-                <h4>Carrito de {{ usuario.fname }} {{ usuario.lname }}</h4>
+                <h4>{{ usuario.fname }} {{ usuario.lname }}'s shopping cart</h4>
                   <!-- <button type="button" (click)="unirseRanking()"  class="btn btn-primary float-right">UNIRSE RANKING</button> -->
               </div>
               <div class="card-body" >
@@ -167,7 +167,7 @@
                     <div class="md-8">
                       <!-- <button type="button" class="btn btn-primary float-right" style="margin-left: 20px;">VER</button>
                       <button type="button" class="btn btn-success float-right" style="margin-left: 20px;">Cantidad</button> -->
-                      <button type="button" (click)="eliminarProd(indice)" class="btn btn-danger float-right" style="margin-left: 20px;">Eliminar producto</button>
+                      <button type="button" (click)="eliminarProd(indice)" class="btn btn-danger float-right" style="margin-left: 20px;">Delete product</button>
                     </div>
                   </li>
                 </ul>
@@ -175,7 +175,7 @@
             </div>
             <h6>
               <button (click)="realizar_pedido()" class="btn btn-success float-right" style="margin-top: 20px;">
-                Realizar pedido
+                Make an order
               </button>
             </h6>
           </div>

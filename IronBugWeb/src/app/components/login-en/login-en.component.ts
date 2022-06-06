@@ -119,7 +119,7 @@ export class LoginEnComponent implements OnInit {
           this.router.navigate(['pprofe', datos]);
         }else {
           console.log(datos);
-          this.router.navigate(['palumno', datos]);
+          this.router.navigate(['palumno-en', datos]);
         }
       }
   )
@@ -137,7 +137,7 @@ export class LoginEnComponent implements OnInit {
 
     this.ServerUserService.listarAlumno(this.alumnoInicio).subscribe(
       datos  => {
-        this.router.navigate(['palumno', datos]);
+        this.router.navigate(['palumno-en', datos]);
       }
     );
 
@@ -146,7 +146,7 @@ export class LoginEnComponent implements OnInit {
   listarRanking(){
     this.serverRankingService.listarRanking(this.ranking).subscribe(
         datos => {
-          this.router.navigate(['palumno',datos]);
+          this.router.navigate(['palumno-en',datos]);
         }
       );
   }
@@ -158,8 +158,8 @@ export class LoginEnComponent implements OnInit {
   registerProfe(){
     this.router.navigate(['rprofe']);
   }
-  registerAlumno(){
-    this.router.navigate(['ralumno']);
+  registerAlumno_en(){
+    this.router.navigate(['ralumno-en']);
   }
 
 }

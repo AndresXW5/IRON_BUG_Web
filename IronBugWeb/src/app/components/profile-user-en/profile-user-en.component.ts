@@ -6,10 +6,11 @@ import { Productos, Usuario } from 'src/app/interfaces/interfaz';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-profile-user',
-  templateUrl: './profile-user.component.html'
+  selector: 'app-profile-user-en',
+  templateUrl: './profile-user-en.component.html',
+  styleUrls: ['./profile-user-en.component.css']
 })
-export class ProfileUserComponent implements OnInit {
+export class ProfileUserEnComponent implements OnInit {
 
   router: Router;
   route: ActivatedRoute;
@@ -100,10 +101,10 @@ export class ProfileUserComponent implements OnInit {
 
       volver(){
         localStorage.clear();
-        this.router.navigate(['']);
+        this.router.navigate(['home-en']);
       }
       carrito(){
-        this.router.navigate(['productos', this.usuario]);
+        this.router.navigate(['productos-en', this.usuario]);
       }
 
       juego(){
@@ -111,7 +112,7 @@ export class ProfileUserComponent implements OnInit {
       }
 
       editar(){
-        this.router.navigate(['editar-alumno', this.usuario]);
+        this.router.navigate(['editar-alumno-en', this.usuario]);
       }
 
       id_eliminar: number = 0;
@@ -134,7 +135,7 @@ export class ProfileUserComponent implements OnInit {
           Swal.fire({
           position: 'top-end',
           icon: 'success',
-          title: 'Producto eliminado correctamente del carrito!"',
+          title: 'CheckoutProduct successfully removed from cart!"',
           showConfirmButton: false,
           timer: 1300
         })
@@ -144,7 +145,7 @@ export class ProfileUserComponent implements OnInit {
       }
 
       realizar_pedido(){
-        this.router.navigate(['confirmar-prod', this.usuario]);
+        this.router.navigate(['confirmar-prod']);
       }
 
       async editarImagen() {
@@ -173,7 +174,7 @@ export class ProfileUserComponent implements OnInit {
                   if(datos == 'OK'){
                     localStorage.setItem('usuario', JSON.stringify(this.usuario));
                     Swal.fire(
-                      'Correcto',
+                      'Correct',
                     )
                   }else{
                     this.usuario = old;
@@ -191,14 +192,14 @@ export class ProfileUserComponent implements OnInit {
 
       async modifyPassword() {
         const { value: formValues } = await Swal.fire({
-          title: 'Cambiar la contraseña',
+          title: 'Change the password',
           html:
-            '<label>Contraseña actual</label>' +
-            '<input class="form-control" id="passw" type="password" placeholder="Contraseña actual" maxlenght>' +
-            '<label>Nueva Contraseña</label>' +
-            '<input class="form-control" id="newPassw" type="password" placeholder="Contraseña actual" maxlenght>' +
-            '<label>Confirmar nueve Contraseña</label>' +
-            '<input class="form-control" id="confNewPassw" type="password" placeholder="Contraseña actual" maxlenght>',
+            '<label>Actual password</label>' +
+            '<input class="form-control" id="passw" type="password" placeholder="Actual password" maxlenght>' +
+            '<label>New password</label>' +
+            '<input class="form-control" id="newPassw" type="password" placeholder="New password" maxlenght>' +
+            '<label>Confirm the new password</label>' +
+            '<input class="form-control" id="confNewPassw" type="password" placeholder="onfirm the new password" maxlenght>',
           focusConfirm: false,
           preConfirm: () => {
             return [
@@ -210,11 +211,11 @@ export class ProfileUserComponent implements OnInit {
         })
         if (formValues) {
           if (formValues[0] != this.usuario.pssw) {
-            console.log('contrasenia actual no coinside');
+            console.log('Actual password dont coincide');
 
           }
           else if (formValues[1] != formValues[2]) {
-            console.log('contrasenia nueva no coinside');
+            console.log('New password dont concide');
 
           }
           else {
@@ -231,5 +232,5 @@ export class ProfileUserComponent implements OnInit {
           }
         }
       }
-  }
 
+}

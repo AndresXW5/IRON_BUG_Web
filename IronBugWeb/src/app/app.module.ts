@@ -23,6 +23,10 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HomeEnComponent } from './components/home-en/home-en.component';
 import { LoginEnComponent } from './components/login-en/login-en.component';
+import { RegisterUserEnComponent } from './components/register-user-en/register-user-en.component';
+import { ProfileUserEnComponent } from './components/profile-user-en/profile-user-en.component';
+import { EditarAlumnoEnComponent } from './components/editar-alumno-en/editar-alumno-en.component';
+import { ProductosEnComponent } from './components/productos-en/productos-en.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -44,6 +48,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ConfirmarPedidoComponent,
     HomeEnComponent,
     LoginEnComponent,
+    RegisterUserEnComponent,
+    ProfileUserEnComponent,
+    EditarAlumnoEnComponent,
+    ProductosEnComponent,
 
     ],
   imports: [

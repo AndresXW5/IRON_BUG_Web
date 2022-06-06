@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Iron Bug</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+
+</head>
+<section class="vh-full gradient-custom bg-SUCCESS" style="background-color: rgb(109, 109, 109)">
+  <div class="container py-5 h-100  w">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">REGISTER USER</h2>
+              <hr size="7" class="rounded">
+
+              <form [formGroup]="usuario" (ngSubmit)="onSubmit()" class="p-3 mt-3">
+                <div class="row">
+
+                  <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="form-outline form-white mb-4 ">
+                      <label class="form-label" for="nick">Nick
+                          <a (click)="infoApodo()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                          </a>
+                      </label>
+                      <input type="text" id="nick" class="form-control form-control-lg" placeholder="Nick" required minlength="3" maxlength="20"
+                        formControlName="nick" [(ngModel)]="usuarios.nick">
+                        <div *ngIf="this.usuarios.nick.length < 3" style="color:red;">*Review field</div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="form-outline form-white mb-4">
+                      <label class="form-label" for="fname">Name
+                        <a (click)="infoNombre()">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                          <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                          </svg>
+                        </a>
+                      </label>
+                      <input type="text" id="fname" class="form-control form-control-lg" placeholder="Name" required minlength="3" maxlength="20"
+                        formControlName="fname" [(ngModel)]="usuarios.fname">
+                        <div *ngIf="this.usuarios.fname.length < 3" style="color:red;">*Review field</div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="form-outline form-white mb-4">
+                      <label class="form-label" for="lname">Last Name
+                        <a (click)="infoApellido()">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                          <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                          </svg>
+                        </a>
+                      </label>
+                      <input type="text" id="lname" class="form-control form-control-lg" placeholder="Last Name"
+                        formControlName="lname" [(ngModel)]="usuarios.lname">
+                        <div *ngIf="this.usuarios.lname.length < 3" style="color:red;">*Review field</div>
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="form-outline form-white mb-4">
+                      <label class="form-label" for="fecha">Fecha</label>
+                      <input type="date" id="fecha" class="form-control form-control-lg" placeholder="Fecha" formControlName="fecha" [(ngModel)]="usuarios.fecha">
+                    </div>
+                  </div> -->
+
+
+                    <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                      <div class="form-outline form-white mb-4">
+                        <label class="form-label" for="mail">Email
+                          <a (click)="infoEmail()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                          </a>
+                        </label>
+                        <input type="mail" id="mail" class="form-control form-control-lg" placeholder="example@mail.com"
+                          formControlName="mail" [(ngModel)]="usuarios.mail">
+                          <!-- <div *ngIf="this.usuarios.mail.length < 3" style="color:red;">*Revisar campo</div> -->
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                      <div class="form-outline form-white mb-4">
+                        <label class="form-label" for="pssw">Password
+                          <a (click)="infoContra()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                          </a>
+                        </label>
+                        <input type="password" id="pssw" class="form-control form-control-lg"
+                          placeholder="********" formControlName="pssw" [(ngModel)]="usuarios.pssw">
+                          <div *ngIf="this.usuarios.pssw.length < 8" style="color:red;">*Review field</div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                      <div class="form-outline form-white mb-4">
+                        <label class="form-label" for="psswConf">Confirm password
+                          <a (click)="infoContraConf()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                          </a>
+                        </label>
+                        <input type="password" id="psswConf" class="form-control form-control-lg"
+                          placeholder="********" formControlName="psswConf" [(ngModel)]="usuarios.psswConf">
+                          <div *ngIf="this.usuarios.psswConf.length < 8" style="color:red;">*Review field</div>
+                      </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+              </form>
+            </div>
+            <div>
+              <p class="mb-0">You are already registered? <a (click)="login()" class="text-white-50 fw-bold">Login</a></p>
+            </div>
+            <button (click)="volver()" class="btn btn-sm btn-danger mt-4">Return</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</html>
