@@ -24,8 +24,8 @@ export class HomeEnComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  register(){
-    this.router.navigate(['login']);
+  register_en(){
+    this.router.navigate(['login-en']);
   }
 
   productos(){

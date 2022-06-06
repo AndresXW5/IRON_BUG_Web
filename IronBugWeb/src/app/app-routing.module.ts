@@ -1,3 +1,4 @@
+import { LoginEnComponent } from './components/login-en/login-en.component';
 import { HomeEnComponent } from './components/home-en/home-en.component';
 import { ConfirmarPedidoComponent } from './components/confirmar-pedido/confirmar-pedido.component';
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
@@ -23,7 +24,9 @@ const routes: Routes = [
     { path: 'editar-alumno', component: EditProfileUserComponent, pathMatch: 'full'},
     { path: 'productos', component: ProductosComponent, pathMatch: 'full'},
     { path: 'confirmar-prod', component: ConfirmarPedidoComponent, pathMatch: 'full'},
+    //English ↓
     { path: 'home-en', component: HomeEnComponent, pathMatch: 'full'},
+    { path: 'login-en', component: LoginEnComponent, pathMatch: 'full'},
 
   { path: '**', redirectTo: '/register' } //Dejar la ultima
   ];

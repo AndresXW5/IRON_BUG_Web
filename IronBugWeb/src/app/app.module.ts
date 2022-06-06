@@ -22,6 +22,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HomeEnComponent } from './components/home-en/home-en.component';
+import { LoginEnComponent } from './components/login-en/login-en.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ProductosComponent,
     ConfirmarPedidoComponent,
     HomeEnComponent,
+    LoginEnComponent,
 
     ],
   imports: [
