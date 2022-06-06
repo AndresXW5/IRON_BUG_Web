@@ -97,13 +97,13 @@ if(isset($_POST['buscar'])){
         $sql2="SELECT * FROM `productos` $where $argumento";
         $consulta=mysqli_query($con,$sql2);
         while($fila=$consulta->fetch_assoc()){
-            $hola=base64_decode($fila["foto"]);
+            
             echo "<section>
              <div class='col'>
               <div class='card estilo-c'>
              
                   <div class='img-container'>
-                    <img src=".$hola." alt='producto 1'>
+                    <img src=".$fila["foto"]." alt='producto 1'>
                     
                   </div>
                 

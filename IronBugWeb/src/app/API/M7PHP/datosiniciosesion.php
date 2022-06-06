@@ -35,7 +35,7 @@ die("no se ha podido realizar la conexion".mysqli_connect_error());
         $_SESSION['rol'] = $b;
 
     }else{
-        echo"no se ha iniciado sesion";
+        header('Location:iniciarsesion.hmtl');
     }
 }
 if(isset($_SESSION['login'])){
@@ -44,9 +44,6 @@ if(isset($_SESSION['login'])){
 }else{
     echo 'sin sesion';
 }
-
-echo '<a href="logout.php">BOTON</a>';
-echo '<a href="productos.php">prod</a>';
-header('Location:administrar.php')
+header('Location:administrar.php');
 ?>
 
