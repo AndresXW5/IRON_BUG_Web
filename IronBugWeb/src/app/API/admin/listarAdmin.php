@@ -18,19 +18,19 @@
     $conexion = conexion(); // CREA LA CONEXION
 
     $registros = mysqli_query($conexion, "SELECT * FROM `admin` WHERE mail='$usuario->mail' AND pssw='$usuario->pssw'");
-
+    $encri=base64_encode($usuario->pssw);
     if(!$registros){
         $response = 'Error';
         echo json_encode($response);
     }else{
         if($registros->num_rows == 0){
-            $registros2 = mysqli_query($conexion,"SELECT * FROM `usuarios` WHERE mail='$usuario->mail' AND pssw='$usuario->pssw'");
+            $registros2 = mysqli_query($conexion,"SELECT * FROM `usuarios` WHERE mail='$usuario->mail' AND pssw='$encri'");
             if($registros2->num_rows == 0){
-                $response = 'Cuenta';
+                $response = 'Cuenta2';
                echo json_encode($response);
             }else{
                 $datos = $registros2->fetch_assoc();
-                if($datos['pssw'] == $usuario->pssw){
+                if(base64_decode($datos['pssw']) == $usuario->pssw){
                     $json = json_encode($datos);
                     echo $json;
                 }else{

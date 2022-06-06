@@ -6,8 +6,8 @@
     header('Access-Control-Allow-Headers: Authorization');
     header('Content-Type text/html; charset=utf-8');
     header('Content-Type: application/json'); //envía el encabezado http json al navegador para informarle qué tipo de datos espera.
-   
-   
+
+
     $json = file_get_contents('php://input');
     $usuario = json_decode($json);
 
@@ -18,7 +18,7 @@
 
     $conexion = conexion(); // CREA LA CONEXION
 
-   
+
     // $resultado = mysqli_query($conexion, $registros);
     // mysqli_num_rows($resultado);
 
@@ -26,8 +26,8 @@
     // mysqli_num_rows($resultado2);
 
 
-   
-   
+
+
     $registros = mysqli_query($conexion, "SELECT * FROM profesores WHERE mail='$usuario->mail' AND pssw='$usuario->pssw'");
 
     if(!$registros){

@@ -16,14 +16,13 @@
 
   //Documentacion https://www.php.net/manual/es/wrappers.php.php
   $json = file_get_contents('php://input');
-
-  $params = json_decode($json);
-
+  $contraseña = $alumnoParam->pssw;
+  $encrip = base64_encode($contraseña);
   echo $json;
 
   // REALIZA LA QUERY A LA DB
  $registros = mysqli_query($conexion, "INSERT INTO `usuarios` (`id_usuario`, `nick`, `fname`, `lname`, `mail`, `fecha`, `pssw`, `psswConf`,`avatar`)
- VALUES (NULL, '$alumnoParam->nick', '$alumnoParam->fname', '$alumnoParam->lname', '$alumnoParam->mail', '$alumnoParam->fecha', '$alumnoParam->pssw', '$alumnoParam->psswConf','https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png')");
+ VALUES (NULL, '$alumnoParam->nick', '$alumnoParam->fname', '$alumnoParam->lname', '$alumnoParam->mail', '$alumnoParam->fecha', '$encrip', '$encrip','$alumnoParam->avatar')");
 
 
 
